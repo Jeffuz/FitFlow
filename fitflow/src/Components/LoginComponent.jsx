@@ -1,11 +1,13 @@
 import React from "react";
 import {useState} from "react";
-
+import { useNavigate } from "react-router-dom";
 
 export default function LoginComponent() { 
 
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+
+  const navigate = useNavigate();
 
   async function loginUser(email, pass) {
     console.log("Passing in data");
@@ -27,6 +29,15 @@ export default function LoginComponent() {
     let result = await loginUser(email, password);
     let convert = await result.json();
     console.log(convert);
+
+    let returnResult = convert["validLogin"];
+
+    if(returnResult !== true)
+    {
+      // Retry
+    }
+
+    navigate(-1);
     //Fetch database
   };
 
