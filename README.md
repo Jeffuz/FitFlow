@@ -15,7 +15,6 @@ git@github.com:Jeffuz/FitFlow.git
 ```bash
 cd fitflow
 npm install
-cd fitflow/client
 npm install react-router-dom
 ```
 3. Set up [environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/) variables
