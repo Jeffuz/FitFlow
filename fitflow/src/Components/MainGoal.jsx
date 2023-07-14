@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-export default function MainGoal() {
+export default function MainGoal({ onContinue }) {
     const [selectedGoal, setSelectedGoal] = useState(null);
-    const navigate = useNavigate();
 
     const handleOptionClick = (event, goal) => {
         setSelectedGoal(goal);
     };
 
-    const handleNextClick = () => {
+    const handleContinue = () => {
         if (selectedGoal) {
-            // Navigate to the next component (replace `/next` with the actual route)
-            navigate('/next');
+            onContinue();
         } else {
             alert('Please select a main goal');
         }
@@ -65,7 +62,7 @@ export default function MainGoal() {
                     onChange={() => { }}
                 />
             </div>
-            <button onClick={handleNextClick}>Next</button>
+            <button onClick={handleContinue}>Next</button>
         </>
     );
 }
