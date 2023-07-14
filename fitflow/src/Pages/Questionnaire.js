@@ -1,19 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import DoesUserHaveAccount from '../Components/DoesUserHaveAccount';
+import ImReady from '../Components/ImReady';
+import MainGoal from '../Components/MainGoal';
 
 export default function Questionnaire() {
-    const goBack = () => {
-        window.history.back();
+    const [step, setStep] = useState(1);
+
+    const handleContinue = () => {
+        if (step === 2) {
+            setStep(3);
+        } else {
+            setStep((prevStep) => prevStep + 1);
+        }
+    };
+
+    const handleGoBack = () => {
+        setStep((prevStep) => prevStep - 1);
     };
 
     return (
         <>
-            <button onClick={goBack}>&#8592;</button>
-            <p>Do you have an account?</p>
-            <Link to="/login">
-                <button>Yes, I Already Have an Account</button>
-            </Link>
-            <button>Not Yet</button>
+            {step === 1 && (
+                <DoesUserHaveAccount onContinue={handleContinue} onGoBack={handleGoBack} />
+            )}
+            {step === 2 && <ImReady onContinue={handleContinue} />}
+            {step === 3 && <MainGoal />}
         </>
     );
 }
