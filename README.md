@@ -34,3 +34,36 @@ python3 server.py
 ```bash
 npm start
 ```
+
+### Installation (Windows)
+1. Clone the repository
+```bash
+git@github.com:Jeffuz/FitFlow.git
+```
+2. Enable Scripts on Powershell (admin)
+```bash
+Set-ExecutionPolicy RemoteSigned
+```
+3. Install frontend dependencies
+```bash
+cd fitflow
+npm install
+npm install react-router-dom
+```
+4. Set up [environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/) variables
+```bash
+python -m pip install --user virtualenv
+python -m venv env
+```
+5. Enable Virtual Environment 
+```bash
+.\env\Scripts\activate
+```
+6. Start the backend server
+```bash
+python server.py
+```
+7. Start the frontend server
+```bash
+npm start
+```
