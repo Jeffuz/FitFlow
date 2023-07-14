@@ -4,6 +4,9 @@ fitflow/node_modules
 /.pnp
 .pnp.js
 
+/env
+
+
 # testing
 /coverage
 
