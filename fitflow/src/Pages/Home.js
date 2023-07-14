@@ -12,7 +12,7 @@ export default function Home() {
                 <a href="/">Privacy Policy</a>.
                 Please review them before continuing.
             </h4>
-            <Link to="/question">
+            <Link to="/questionnaire">
                 <button>GET STARTED</button>
             </Link>
         </div>

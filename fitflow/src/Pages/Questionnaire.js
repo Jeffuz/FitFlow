@@ -1,4 +1,4 @@
-export default function Questionnarie() {
+export default function Questionnaire() {
     return (
         <>
             <h2>Test</h2>
