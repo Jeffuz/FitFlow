@@ -1,6 +1,6 @@
 # dependencies
 fitflow/node_modules
-#flask-server/env
+fitflowServer/env
 /.pnp
 .pnp.js
 
