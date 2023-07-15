@@ -6,6 +6,7 @@ fitflowServer/env
 
 /fitflow/env
 
+/env
 
 # testing
 /coverage
