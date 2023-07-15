@@ -10,6 +10,10 @@ export default function DoesUserHaveAccount({ onContinue }) {
     };
 
     const handleContinue = () => {
+        if (hasAccount === null) {
+            alert('Please select an option');
+            return;
+        }
         if (hasAccount) {
             navigate('/login');
         } else {

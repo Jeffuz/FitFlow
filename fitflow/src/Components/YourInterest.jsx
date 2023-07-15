@@ -11,7 +11,7 @@ export default function YourInterest({ onContinue }) {
         if (selectedGoal) {
             onContinue();
         } else {
-            alert('Please select a main goal');
+            alert('Please select an interest');
         }
     };
 
@@ -20,7 +20,7 @@ export default function YourInterest({ onContinue }) {
             <h2>What are you interested in?</h2>
             <div onClick={(event) => handleOptionClick(event, 'meal-plans')}>
                 <label>
-                    <strong>Meal Plans:</strong> I want to have a set meny to achieve faster results
+                    <strong>Meal Plans:</strong> I want to have a set menu to achieve faster results
                 </label>
                 <input
                     type="radio"
@@ -31,7 +31,7 @@ export default function YourInterest({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, 'calorie-counting')}>
                 <label>
-                    <strong>Calorie Counting:</strong> I like to be precise and know the exact macros I consume 
+                    <strong>Calorie Counting:</strong> I like to be precise and know the exact macros I consume
                 </label>
                 <input
                     type="radio"
@@ -42,7 +42,7 @@ export default function YourInterest({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, 'workout-plans')}>
                 <label>
-                    <strong>Workout Plans:</strong> I'd like to get in shape and get definition in my muscles
+                    <strong>Workout Plans:</strong> I'd like to get in shape and define my muscles
                 </label>
                 <input
                     type="radio"
