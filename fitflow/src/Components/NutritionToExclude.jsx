@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
 export default function NutritionToExclude({ onContinue }) {
-    const [selectedGoal, setSelectedGoal] = useState(null);
+    const [selectedNutrition, setSelectedNutrition] = useState(null);
 
-    const handleOptionClick = (event, goal) => {
-        setSelectedGoal(goal);
+    const handleOptionClick = (event, Nutrition) => {
+        setSelectedNutrition(Nutrition);
     };
 
     const handleContinue = () => {
-        if (selectedGoal) {
+        if (selectedNutrition) {
             onContinue();
         } else {
-            alert('Please select a gender');
+            alert('Please select an option');
         }
     };
 
@@ -24,7 +24,7 @@ export default function NutritionToExclude({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    checked={selectedGoal === 'dairy'}
+                    checked={selectedNutrition === 'dairy'}
                     onChange={() => { }}
                 />
             </div>
@@ -34,7 +34,7 @@ export default function NutritionToExclude({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    checked={selectedGoal === 'gluten'}
+                    checked={selectedNutrition === 'gluten'}
                     onChange={() => { }}
                 />
             </div>
@@ -44,7 +44,7 @@ export default function NutritionToExclude({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    checked={selectedGoal === 'eggs'}
+                    checked={selectedNutrition === 'eggs'}
                     onChange={() => { }}
                 />
             </div>
@@ -54,7 +54,7 @@ export default function NutritionToExclude({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    checked={selectedGoal === 'fish'}
+                    checked={selectedNutrition === 'fish'}
                     onChange={() => { }}
                 />
             </div>
@@ -64,7 +64,7 @@ export default function NutritionToExclude({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    checked={selectedGoal === 'i_eat_everything'}
+                    checked={selectedNutrition === 'i_eat_everything'}
                     onChange={() => { }}
                 />
             </div>
