@@ -24,7 +24,6 @@ export default function MainGoal({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    value="lose-weight"
                     checked={selectedGoal === 'lose-weight'}
                     onChange={() => { }}
                 />
@@ -35,7 +34,6 @@ export default function MainGoal({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    value="find-self-love"
                     checked={selectedGoal === 'find-self-love'}
                     onChange={() => { }}
                 />
@@ -46,7 +44,6 @@ export default function MainGoal({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    value="build-muscle"
                     checked={selectedGoal === 'build-muscle'}
                     onChange={() => { }}
                 />
@@ -57,7 +54,6 @@ export default function MainGoal({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    value="keep-fit"
                     checked={selectedGoal === 'keep-fit'}
                     onChange={() => { }}
                 />
