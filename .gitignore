@@ -4,8 +4,9 @@ fitflowServer/env
 /.pnp
 .pnp.js
 
-/env
+/fitflow/env
 
+/env
 
 # testing
 /coverage

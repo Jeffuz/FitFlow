@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Home() {
     return (
         <div>
-            <h1>FitFlow</h1>
+            <h1 className="text-3xl font-bold underline">FitFlow</h1>
             <h3>Unlock your potential, embrace your strength, and flow towards a healthier you with FitFlow</h3>
             <h4>
                 By tapping GET STARTED, you agree to our&nbsp;
