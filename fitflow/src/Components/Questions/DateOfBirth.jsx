@@ -29,8 +29,8 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
 
     const handleContinue = () => {
         if (day && month && year) {
-            const birthday = new Date(year, month - 1, day);
-            onContinue({birthday: birthday});
+            const birthday = new Date(year, month - 1, day, 0, 0, 0);
+            onContinue({ birthday });
         } else {
             alert('Please enter a valid date of birth');
         }
@@ -40,43 +40,51 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
         onGoBack();
     };
 
+    const currentYear = new Date().getFullYear();
+    const yearOptions = Array.from(
+        { length: currentYear - 1899 },
+        (_, index) => currentYear - index
+    );
+    const monthOptions = Array.from({ length: 12 }, (_, index) => index + 1);
+    const dayOptions = Array.from({ length: 31 }, (_, index) => index + 1);
+
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <p className='text-2xl mb-5'>Enter Your Date of Birth</p>
+            <p className="text-2xl mb-5">Enter Your Date of Birth</p>
             <div>
                 <label>
                     Month:
-                    <input
-                        type="number"
-                        value={month}
-                        onChange={handleMonthChange}
-                        placeholder="Month"
-                        min={1}
-                        max={12}
-                    />
+                    <select value={month} onChange={handleMonthChange}>
+                        <option value="">Select Month</option>
+                        {monthOptions.map((option) => (
+                            <option key={option} value={option}>
+                                {option}
+                            </option>
+                        ))}
+                    </select>
                 </label>
                 <label>
                     Day:
-                    <input
-                        type="number"
-                        value={day}
-                        onChange={handleDayChange}
-                        placeholder="Day"
-                        min={1}
-                        max={31}
-                    />
+                    <select value={day} onChange={handleDayChange}>
+                        <option value="">Select Day</option>
+                        {dayOptions.map((option) => (
+                            <option key={option} value={option}>
+                                {option}
+                            </option>
+                        ))}
+                    </select>
                 </label>
                 <label>
                     Year:
-                    <input
-                        type="number"
-                        value={year}
-                        onChange={handleYearChange}
-                        placeholder="Year"
-                        min={1900}
-                        max={new Date().getFullYear()}
-                    />
+                    <select value={year} onChange={handleYearChange}>
+                        <option value="">Select Year</option>
+                        {yearOptions.map((option) => (
+                            <option key={option} value={option}>
+                                {option}
+                            </option>
+                        ))}
+                    </select>
                 </label>
             </div>
             <button onClick={handleContinue}>Next</button>
