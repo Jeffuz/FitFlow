@@ -21,7 +21,7 @@ collection = db["Users"]
 openai.api_key = "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"
 model = "gpt-3.5-turbo"
 
-CHATMODELROLE = 'You are a gym planner who helps clients achieve their goals.'
+CHATMODELROLE = 'You are a gym planner who helps clients achieve their goals with short and concise plans.'
 
 def gernerateWorkoutPlan(userPlanMessage):
     print(userPlanMessage)
