@@ -4,7 +4,7 @@ export default function SpecialPrograms({ onContinue, onGoBack }) {
     const [selectedGoals, setSelectedGoals] = useState([]);
 
     const handleOptionToggle = (goal) => {
-        if (goal === 'no_thanks') {
+        if (goal === 'no thanks') {
             setSelectedGoals([goal]);
         } else if (goal === 'postnatal') {
             const updatedGoals = selectedGoals.includes('postnatal')
@@ -26,8 +26,8 @@ export default function SpecialPrograms({ onContinue, onGoBack }) {
                 updatedGoals.splice(goalIndex, 1);
             }
 
-            if (updatedGoals.length > 0 && updatedGoals.includes('no_thanks')) {
-                updatedGoals.splice(updatedGoals.indexOf('no_thanks'), 1);
+            if (updatedGoals.length > 0 && updatedGoals.includes('no thanks')) {
+                updatedGoals.splice(updatedGoals.indexOf('no thanks'), 1);
             }
 
             setSelectedGoals(updatedGoals);
@@ -36,8 +36,7 @@ export default function SpecialPrograms({ onContinue, onGoBack }) {
 
     const handleContinue = () => {
         if (selectedGoals.length > 0) {
-            // console.log('Selected Goals:', selectedGoals);
-            onContinue(selectedGoals);
+            onContinue({ specialPrograms: selectedGoals });
         } else {
             alert('Please select at least one interest');
         }
@@ -51,26 +50,26 @@ export default function SpecialPrograms({ onContinue, onGoBack }) {
         <>
             <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>Do you want to include special programs?</p>
-            <div className='mb-2' onClick={() => handleOptionToggle('no_thanks')}>
-                <input className='mr-1' type="radio" checked={selectedGoals.includes('no_thanks')} onChange={() => { }} />
+            <div className='mb-2' onClick={() => handleOptionToggle('no thanks')}>
+                <input className='mr-1' type="radio" checked={selectedGoals.includes('no thanks')} onChange={() => { }} />
                 <label>
                     <strong>No Thanks</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={() => handleOptionToggle('sensitive_back')}>
-            <input className='mr-1' type="radio" checked={selectedGoals.includes('sensitive_back')} onChange={() => { }} />
+            <div className='mb-2' onClick={() => handleOptionToggle('sensitive back')}>
+            <input className='mr-1' type="radio" checked={selectedGoals.includes('sensitive back')} onChange={() => { }} />
                 <label>
                     <strong>Sensitive Back</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={() => handleOptionToggle('sensitive_knees')}>
-                <input className='mr-1' type="radio" checked={selectedGoals.includes('sensitive_knees')} onChange={() => { }} />
+            <div className='mb-2' onClick={() => handleOptionToggle('sensitive knees')}>
+                <input className='mr-1' type="radio" checked={selectedGoals.includes('sensitive knees')} onChange={() => { }} />
                 <label>
                     <strong>Sensitive Knees</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={() => handleOptionToggle('limited_mobility')}>
-                <input className='mr-1' type="radio" checked={selectedGoals.includes('limited_mobility')} onChange={() => { }} />
+            <div className='mb-2' onClick={() => handleOptionToggle('limited mobility')}>
+                <input className='mr-1' type="radio" checked={selectedGoals.includes('limited mobility')} onChange={() => { }} />
                 <label>
                     <strong>Limited Mobility (Wheelchair)</strong>
                 </label>

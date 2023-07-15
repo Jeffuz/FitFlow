@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 export default function WhatBodyType({ onContinue, onGoBack }) {
-    const [selectedGoal, setSelectedGoal] = useState(null);
+    const [selectedBodyType, setSelectedBodyType] = useState(null);
 
-    const handleOptionClick = (event, goal) => {
-        setSelectedGoal(goal);
+    const handleOptionClick = (event, BodyType) => {
+        setSelectedBodyType(BodyType);
     };
 
     const handleContinue = () => {
-        if (selectedGoal) {
-            onContinue();
+        if (selectedBodyType) {
+            onContinue({body_type: selectedBodyType});
         } else {
             alert('Please select an option');
         }
@@ -27,7 +27,7 @@ export default function WhatBodyType({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'ectomorph'}
+                    checked={selectedBodyType === 'ectomorph'}
                     onChange={() => { }}
                 />
                 <label>
@@ -38,7 +38,7 @@ export default function WhatBodyType({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'mesomorph'}
+                    checked={selectedBodyType === 'mesomorph'}
                     onChange={() => { }}
                 />
                 <label>
@@ -49,7 +49,7 @@ export default function WhatBodyType({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'endomorph'}
+                    checked={selectedBodyType === 'endomorph'}
                     onChange={() => { }}
                 />
                 <label>

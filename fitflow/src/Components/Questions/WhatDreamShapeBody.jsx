@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 export default function WhatDreamShapeBody({ onContinue, onGoBack }) {
-    const [selectedGoal, setSelectedGoal] = useState(null);
+    const [selectedBodyShape, setSelectedBodyShape] = useState(null);
 
-    const handleOptionClick = (event, goal) => {
-        setSelectedGoal(goal);
+    const handleOptionClick = (event, BodyShape) => {
+        setSelectedBodyShape(BodyShape);
     };
 
     const handleContinue = () => {
-        if (selectedGoal) {
-            onContinue();
+        if (selectedBodyShape) {
+            onContinue({body_shape: selectedBodyShape});
         } else {
             alert('Please select an option');
         }
@@ -27,7 +27,7 @@ export default function WhatDreamShapeBody({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'cut'}
+                    checked={selectedBodyShape === 'cut'}
                     onChange={() => { }}
                 />
                 <label>
@@ -38,7 +38,7 @@ export default function WhatDreamShapeBody({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'bulk'}
+                    checked={selectedBodyShape === 'bulk'}
                     onChange={() => { }}
                 />
                 <label>
@@ -49,7 +49,7 @@ export default function WhatDreamShapeBody({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'extra_bulk'}
+                    checked={selectedBodyShape === 'extra_bulk'}
                     onChange={() => { }}
                 />
                 <label>

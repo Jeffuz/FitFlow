@@ -16,7 +16,7 @@ export default function WhatWeight({ onContinue, onGoBack }) {
     };
 
     const handleContinue = () => {
-        onContinue(weight, measurementUnit);
+        onContinue({current_weight: weight, unit: measurementUnit});
     };
 
     const handleGoBack = () => {

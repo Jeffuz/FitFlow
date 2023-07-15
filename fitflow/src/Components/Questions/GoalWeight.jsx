@@ -16,7 +16,7 @@ export default function GoalWeight({ onContinue, onGoBack }) {
     };
 
     const handleContinue = () => {
-        onContinue(weight, measurementUnit);
+        onContinue({ goal_weight: weight, unit: measurementUnit });
     };
     
     const handleGoBack = () => {

@@ -4,6 +4,7 @@ export default function WhatHeight({ onContinue, onGoBack }) {
     const [unit, setUnit] = useState('inches');
     const [feet, setFeet] = useState('');
     const [inches, setInches] = useState('');
+    const [centimeters, setCentimeters] = useState('');
 
     const handleUnitChange = (event) => {
         setUnit(event.target.value);
@@ -23,8 +24,27 @@ export default function WhatHeight({ onContinue, onGoBack }) {
         }
     };
 
+    const handleCentimetersChange = (event) => {
+        const value = event.target.value;
+        if (value >= 0) {
+            setCentimeters(value);
+        }
+    };
+
     const handleContinue = () => {
-        onContinue(feet, inches, unit);
+        if (unit === 'inches') {
+            if (!feet || !inches) {
+                alert('Please enter your height in feet and inches');
+                return;
+            }
+            onContinue({ feet, inches, unit });
+        } else if (unit === 'cm') {
+            if (!centimeters) {
+                alert('Please enter your height in centimeters');
+                return;
+            }
+            onContinue({ centimeters, unit });
+        }
     };
 
     const handleGoBack = () => {
@@ -73,11 +93,11 @@ export default function WhatHeight({ onContinue, onGoBack }) {
             {unit === 'cm' && (
                 <div>
                     <label>
-                        cm:
+                        Centimeters:
                         <input
                             type="number"
-                            value={feet}
-                            onChange={handleFeetChange}
+                            value={centimeters}
+                            onChange={handleCentimetersChange}
                             placeholder="Centimeters"
                         />
                     </label>

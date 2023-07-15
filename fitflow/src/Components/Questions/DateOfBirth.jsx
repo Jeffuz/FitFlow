@@ -30,7 +30,7 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
     const handleContinue = () => {
         if (day && month && year) {
             const birthday = new Date(year, month - 1, day);
-            onContinue(birthday);
+            onContinue({birthday: birthday});
         } else {
             alert('Please enter a valid date of birth');
         }

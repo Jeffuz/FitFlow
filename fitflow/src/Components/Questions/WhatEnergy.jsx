@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 export default function WhatEnergy({ onContinue, onGoBack }) {
-    const [selectedGoal, setSelectedGoal] = useState(null);
+    const [selectedEnergy, setSelectedEnergy] = useState(null);
 
-    const handleOptionClick = (event, goal) => {
-        setSelectedGoal(goal);
+    const handleOptionClick = (event, Energy) => {
+        setSelectedEnergy(Energy);
     };
 
     const handleContinue = () => {
-        if (selectedGoal) {
-            onContinue();
+        if (selectedEnergy) {
+            onContinue({energy_level: selectedEnergy});
         } else {
             alert('Please select a gender');
         }
@@ -27,7 +27,7 @@ export default function WhatEnergy({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'even_throughout_the_day'}
+                    checked={selectedEnergy === 'even_throughout_the_day'}
                     onChange={() => { }}
                 />
                 <label>
@@ -38,7 +38,7 @@ export default function WhatEnergy({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'i_feel_a_dip_around_lunchtime'}
+                    checked={selectedEnergy === 'i_feel_a_dip_around_lunchtime'}
                     onChange={() => { }}
                 />
                 <label>
@@ -49,7 +49,7 @@ export default function WhatEnergy({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'i_need_a_nap_after_meals'}
+                    checked={selectedEnergy === 'i_need_a_nap_after_meals'}
                     onChange={() => { }}
                 />
                 <label>
