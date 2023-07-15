@@ -11,6 +11,7 @@ function getToken() {
 export default function Home() {
   const [backgroundImage, setBackgroundImage] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userData, setUserData] = useState({});
 
   const token = getToken();
 
@@ -39,6 +40,7 @@ export default function Home() {
   };
 
   const closeModal = () => {
+    console.log(userData);
     setIsModalOpen(false);
   };
 
@@ -85,7 +87,7 @@ export default function Home() {
           <div className="py-10 px-12 bg-zinc-200 opacity-90 rounded-3xl">
             {/* <h2>Modal Window</h2>
             <p>This is the content of the modal.</p> */}
-            <Questionnaire />
+            <Questionnaire userData={userData} setUserData={setUserData}/>
             <button className='pl-1' onClick={closeModal}>| Close</button>
           </div>
         </div>

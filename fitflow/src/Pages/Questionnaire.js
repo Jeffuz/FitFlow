@@ -24,9 +24,8 @@ import WhatHeight from '../Components/Questions/WhatHeight';
 
 import './styles.css'; // Import the CSS file
 
-export default function Questionnaire() {
+export default function Questionnaire({userData, setUserData}) {
     const [step, setStep] = useState(1);
-    const [userData, setUserData] = useState({});
 
     const handleContinue = (data) => {
         setUserData((prevData) => ({ ...prevData, ...data }));
@@ -44,7 +43,7 @@ export default function Questionnaire() {
 
     const sendDataToBackend = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:5000', {
+            const response = await fetch(`http://127.0.0.1:5000/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
