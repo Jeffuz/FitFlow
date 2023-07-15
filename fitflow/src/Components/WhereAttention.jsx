@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 
 export default function WhereAttention({ onContinue }) {
-    const [selectedGoals, setSelectedGoals] = useState([]);
+    const [selectedAttention, setselectedAttention] = useState([]);
 
-    const handleOptionToggle = (goal) => {
-        const updatedGoals = [...selectedGoals];
-        const goalIndex = updatedGoals.indexOf(goal);
+    const handleOptionToggle = (attention) => {
+        const updateAttention = [...selectedAttention];
+        const attentionIndex = updateAttention.indexOf(attention);
 
-        if (goalIndex === -1) {
-            updatedGoals.push(goal);
+        if (attentionIndex === -1) {
+            updateAttention.push(attention);
         } else {
-            updatedGoals.splice(goalIndex, 1);
+            updateAttention.splice(attentionIndex, 1);
         }
 
-        setSelectedGoals(updatedGoals);
+        setselectedAttention(updateAttention);
     };
 
     const handleContinue = () => {
-        if (selectedGoals.length > 0) {
-            // console.log('Selected Goals:', selectedGoals);
-            onContinue(selectedGoals);
+        if (selectedAttention.length > 0) {
+            // console.log('Selected area:', selectedAttention);
+            onContinue(selectedAttention);
         } else {
             alert('Please select at least one interest');
         }
@@ -27,24 +27,24 @@ export default function WhereAttention({ onContinue }) {
 
     return (
         <>
-            <h2>What are you interested in?</h2>
+            <h2>What area needs the most attention?</h2>
             <div onClick={() => handleOptionToggle('chest')}>
                 <label>
                     <strong>Chest</strong>
                 </label>
                 <input
                     type="radio"
-                    checked={selectedGoals.includes('chest')}
+                    checked={selectedAttention.includes('chest')}
                     onChange={() => { }}
                 />
             </div>
             <div onClick={() => handleOptionToggle('arms')}>
                 <label>
-                    <strong>Arms</strong> 
+                    <strong>Arms</strong>
                 </label>
                 <input
                     type="radio"
-                    checked={selectedGoals.includes('arms')}
+                    checked={selectedAttention.includes('arms')}
                     onChange={() => { }}
                 />
             </div>
@@ -54,17 +54,17 @@ export default function WhereAttention({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    checked={selectedGoals.includes('abs')}
+                    checked={selectedAttention.includes('abs')}
                     onChange={() => { }}
                 />
             </div>
             <div onClick={() => handleOptionToggle('legs')}>
                 <label>
-                    <strong>Legs</strong> 
+                    <strong>Legs</strong>
                 </label>
                 <input
                     type="radio"
-                    checked={selectedGoals.includes('legs')}
+                    checked={selectedAttention.includes('legs')}
                     onChange={() => { }}
                 />
             </div>
