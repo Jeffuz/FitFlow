@@ -9,31 +9,29 @@ export default function LoginComponent() {
 
   const navigate = useNavigate();
 
-  async function loginUser(email, pass) {
+  async function loginUser(credentials) {
     console.log("Passing in data");
 
     return fetch(`http://127.0.0.1:5000/login?`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        'email': email,
-        'password': pass,
-      })
+      body: JSON.stringify(credentials)
     });
   }
 
   const handleLogin = async(event) => {
     event.preventDefault();
-    console.log(email);
-    console.log(password);
-    let result = await loginUser(email, password);
+
+    let result = await loginUser({email, password});
     let convert = await result.json();
     console.log(convert);
 
-    let returnResult = convert["validLogin"];
+    let returnResult = convert["Result"];
 
-    if(returnResult !== true)
+    if(returnResult !== "Success")
     {
+      console.log("Incorrect data");
+      return
       // Retry
     }
 

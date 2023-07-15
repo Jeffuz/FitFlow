@@ -16,32 +16,72 @@ db = cluster["FitFlow"]
 collection = db["Users"]
 #print(collection)
 
+def doesUserExist(userEmail):      
+    user = list(collection.find({ "Email": userEmail}))
+    print("Called")
+    if len(user) > 0:
+        return True
+    
+    return False
+
+
 @app.route("/login", methods=("GET", "POST"))
 def login():
-    json = request.get_json();
-    print(json)
-    return {"Message": "LOGIN PAGE"}
+
+    isValid = False
+    validUserToken = None
+
+    try:
+        if request.method == "POST":
+            json = request.get_json()
+
+        user = list(collection.find({ "Email": json["email"]}))
+
+        for x in user:
+            if x["Password"] == json["password"]:
+                isValid = True
+                validUserToken = x["_id"]
+
+    except Exception as e:
+        return {"Result": "Fail",
+                "Error": str(e)}, 300 
+    # User found
+    if isValid:
+        idString = str(validUserToken)
+        return {
+            "Result": "Success",
+            "Id": idString,
+            "Token": "Valid",
+            "Error": ""
+        }
+        
+    # No user found
+    return {
+        "Result": "Fail",
+        "Id": "",
+        "Token": "Invalid",
+        "Error": "Email or Password does not match"
+    }
 
 
 @app.route("/signup", methods=("GET", "POST"))
 def signup():
-    isDuplicate = False
     try:  
         if request.method == 'POST':
             json = request.get_json()
 
-            user = list(collection.find({ "Email": json["email"]}))
-            
-            if len(user) > 0:
-                return {"error": "Account for email already exists."}
-            
+            if doesUserExist(json["email"]):
+                return {"Result": "Fail",
+                        "Error": "User exists for email"}
+
             collection.insert_one({
                     "Email": json["email"],
                     "Password": json["password"],
                 })
             
     except Exception as e:
-        return str(e), 100
+        return {"Result": "Fail",
+                "Error": str(e) }, 100
     
     return {"Result": "Success",
             "Error": "None" }
