@@ -22,36 +22,39 @@ export default function WhatDreamShapeBody({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <h2>What's your dream body shape?</h2>
-            <div onClick={(event) => handleOptionClick(event, 'cut')}>
-                <label>
-                    <strong>Cut</strong>
-                </label>
+            <p className='text-2xl mb-5'>What's your dream body shape?</p>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'cut')}>
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'cut'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'bulk')}>
                 <label>
-                    <strong>Bulk</strong>
+                    <strong>Cut</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'bulk')}>
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'bulk'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'extra_bulk')}>
                 <label>
-                    <strong>Extra Bulk</strong>
+                    <strong>Bulk</strong>
                 </label>
+            </div>
+            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'extra_bulk')}>
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'extra_bulk'}
                     onChange={() => { }}
                 />
+                <label>
+                    <strong>Extra Bulk</strong>
+                </label>
             </div>
             <button onClick={handleContinue}>Next</button>
         </>

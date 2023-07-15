@@ -32,46 +32,54 @@ export default function YourInterest({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <h2>What are you interested in?</h2>
-            <div onClick={() => handleOptionToggle('meal-plans')}>
-                <label>
-                    <strong>Meal Plans:</strong> I want to have a set menu to achieve faster results
-                </label>
+            <p className='text-2xl mb-5'>What are you interested in?</p>
+            <div className='mb-2' onClick={() => handleOptionToggle('meal-plans')}>
+                
                 <input
+                    className='mr-1'
                     type="radio"
                     checked={selectedGoals.includes('meal-plans')}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={() => handleOptionToggle('calorie-counting')}>
                 <label>
-                    <strong>Calorie Counting:</strong> I like to be precise and know the exact macros I consume
+                    <strong>Meal Plans:</strong> I want to have a set menu to achieve faster results
                 </label>
+            </div>
+            <div className='mb-2' onClick={() => handleOptionToggle('calorie-counting')}>
+                
                 <input
+                    className='mr-1'
                     type="radio"
                     checked={selectedGoals.includes('calorie-counting')}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={() => handleOptionToggle('workout-plans')}>
                 <label>
-                    <strong>Workout Plans:</strong> I'd like to get in shape and define my muscles
+                    <strong>Calorie Counting:</strong> I like to be precise and know the exact macros I consume
                 </label>
+            </div>
+            <div className='mb-2' onClick={() => handleOptionToggle('workout-plans')}>
+                
                 <input
+                    className='mr-1'
                     type="radio"
                     checked={selectedGoals.includes('workout-plans')}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={() => handleOptionToggle('fasting')}>
                 <label>
-                    <strong>Fasting:</strong> I want to lose weight and improve digestion
+                    <strong>Workout Plans:</strong> I'd like to get in shape and define my muscles
                 </label>
+            </div>
+            <div className='mb-5' onClick={() => handleOptionToggle('fasting')}>
+                
                 <input
+                    className='mr-1'
                     type="radio"
                     checked={selectedGoals.includes('fasting')}
                     onChange={() => { }}
                 />
+                <label>
+                    <strong>Fasting:</strong> I want to lose weight and improve digestion
+                </label>
             </div>
             <button onClick={handleContinue}>Next</button>
         </>

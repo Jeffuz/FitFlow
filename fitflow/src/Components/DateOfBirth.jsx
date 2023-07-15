@@ -43,7 +43,7 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <h2>Enter Your Date of Birth</h2>
+            <p className='text-2xl mb-5'>Enter Your Date of Birth</p>
             <div>
                 <label>
                     Month:
