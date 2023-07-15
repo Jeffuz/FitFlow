@@ -1,6 +1,7 @@
 # dependencies
 fitflow/node_modules
 fitflowServer/env
+fitflowServer/config.py
 /.pnp
 .pnp.js
 
