@@ -24,7 +24,6 @@ export default function WhatGender({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    value="male"
                     checked={selectedGoal === 'male'}
                     onChange={() => { }}
                 />
@@ -35,7 +34,6 @@ export default function WhatGender({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    value="female"
                     checked={selectedGoal === 'female'}
                     onChange={() => { }}
                 />
@@ -46,7 +44,6 @@ export default function WhatGender({ onContinue }) {
                 </label>
                 <input
                     type="radio"
-                    value="non_binary"
                     checked={selectedGoal === 'non_binary'}
                     onChange={() => { }}
                 />
