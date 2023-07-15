@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function NutritionToExclude({ onContinue }) {
+export default function NutritionToExclude({ onContinue, onGoBack }) {
     const [selectedNutrition, setSelectedNutrition] = useState(null);
 
     const handleOptionClick = (event, Nutrition) => {
@@ -15,8 +15,13 @@ export default function NutritionToExclude({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What do you want to exclude?</h2>
             <div onClick={(event) => handleOptionClick(event, 'dairy')}>
                 <label>

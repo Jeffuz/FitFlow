@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function WhatWeight({ onContinue }) {
+export default function WhatWeight({ onContinue, onGoBack }) {
     const [weight, setWeight] = useState('');
     const [measurementUnit, setMeasurementUnit] = useState('kg');
 
@@ -19,8 +19,13 @@ export default function WhatWeight({ onContinue }) {
         onContinue(weight, measurementUnit);
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>Enter Your Weight</h2>
             <div>
                 <label>

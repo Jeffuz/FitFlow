@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function WhereWorkout({ onContinue }) {
+export default function WhereWorkout({ onContinue, onGoBack }) {
     const [selectedGoal, setSelectedGoal] = useState(null);
 
     const handleOptionClick = (event, goal) => {
@@ -15,12 +15,17 @@ export default function WhereWorkout({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What's your main goal?</h2>
             <div onClick={(event) => handleOptionClick(event, 'gym')}>
                 <label>
-                    <strong>Gym</strong> 
+                    <strong>Gym</strong>
                 </label>
                 <input
                     type="radio"
@@ -30,7 +35,7 @@ export default function WhereWorkout({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, 'home')}>
                 <label>
-                    <strong>Home</strong> 
+                    <strong>Home</strong>
                 </label>
                 <input
                     type="radio"

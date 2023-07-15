@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function SpecialPrograms({ onContinue }) {
+export default function SpecialPrograms({ onContinue, onGoBack }) {
     const [selectedGoals, setSelectedGoals] = useState([]);
 
     const handleOptionToggle = (goal) => {
@@ -43,8 +43,13 @@ export default function SpecialPrograms({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>Do you want to include special programs?</h2>
             <div onClick={() => handleOptionToggle('no_thanks')}>
                 <label>

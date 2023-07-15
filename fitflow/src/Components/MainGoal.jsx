@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function MainGoal({ onContinue }) {
+export default function MainGoal({ onContinue, onGoBack }) {
     const [selectedGoal, setSelectedGoal] = useState(null);
 
     const handleOptionClick = (event, goal) => {
@@ -15,8 +15,13 @@ export default function MainGoal({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What's your main goal?</h2>
             <div onClick={(event) => handleOptionClick(event, 'lose-weight')}>
                 <label>

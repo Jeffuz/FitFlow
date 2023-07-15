@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function SendentaryLifestyle({ onContinue }) {
+export default function SendentaryLifestyle({ onContinue, onGoBack }) {
     const [selectedStyle, setSelectedStyle] = useState(null);
 
     const handleOptionClick = (event, Style) => {
@@ -15,12 +15,17 @@ export default function SendentaryLifestyle({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>Do you have a sedentary lifestyle?</h2>
             <div onClick={(event) => handleOptionClick(event, 'yes')}>
                 <label>
-                    <strong>Yes</strong> 
+                    <strong>Yes</strong>
                 </label>
                 <input
                     type="radio"
@@ -30,7 +35,7 @@ export default function SendentaryLifestyle({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, 'no')}>
                 <label>
-                    <strong>No</strong> 
+                    <strong>No</strong>
                 </label>
                 <input
                     type="radio"

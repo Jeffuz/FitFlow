@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function DietType({ onContinue }) {
+export default function DietType({ onContinue, onGoBack }) {
     const [selectedGoal, setSelectedGoal] = useState(null);
 
     const handleOptionClick = (event, Diet) => {
@@ -15,8 +15,13 @@ export default function DietType({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>Choose your diet type</h2>
             <div onClick={(event) => handleOptionClick(event, 'traditional')}>
                 <label>

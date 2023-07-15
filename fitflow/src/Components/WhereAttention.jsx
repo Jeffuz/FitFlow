@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function WhereAttention({ onContinue }) {
+export default function WhereAttention({ onContinue, onGoBack }) {
     const [selectedAttention, setselectedAttention] = useState([]);
 
     const handleOptionToggle = (attention) => {
@@ -25,8 +25,13 @@ export default function WhereAttention({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What area needs the most attention?</h2>
             <div onClick={() => handleOptionToggle('chest')}>
                 <label>
