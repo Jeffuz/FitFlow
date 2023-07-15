@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function WhatEnergy({ onContinue }) {
+export default function WhatEnergy({ onContinue, onGoBack }) {
     const [selectedGoal, setSelectedGoal] = useState(null);
 
     const handleOptionClick = (event, goal) => {
@@ -15,12 +15,17 @@ export default function WhatEnergy({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>How are your energy levels during the day?</h2>
             <div onClick={(event) => handleOptionClick(event, 'even_throughout_the_day')}>
                 <label>
-                    <strong>Even Throughout the Day</strong> 
+                    <strong>Even Throughout the Day</strong>
                 </label>
                 <input
                     type="radio"
@@ -30,7 +35,7 @@ export default function WhatEnergy({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, 'i_feel_a_dip_around_lunchtime')}>
                 <label>
-                    <strong>I Feel a Dip Around Lunchtime</strong> 
+                    <strong>I Feel a Dip Around Lunchtime</strong>
                 </label>
                 <input
                     type="radio"
@@ -40,7 +45,7 @@ export default function WhatEnergy({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, 'i_need_a_nap_after_meals')}>
                 <label>
-                    <strong>I Need a Nap After Meals</strong> 
+                    <strong>I Need a Nap After Meals</strong>
                 </label>
                 <input
                     type="radio"

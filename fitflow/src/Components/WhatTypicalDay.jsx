@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function WhatTypicalDay({ onContinue }) {
+export default function WhatTypicalDay({ onContinue, onGoBack }) {
     const [selectedGoal, setSelectedGoal] = useState(null);
 
     const handleOptionClick = (event, goal) => {
@@ -15,8 +15,13 @@ export default function WhatTypicalDay({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What does your typical day look like?</h2>
             <div onClick={(event) => handleOptionClick(event, 'at_the_office')}>
                 <label>

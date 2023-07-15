@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function WhatBodyType({ onContinue }) {
+export default function WhatBodyType({ onContinue, onGoBack }) {
     const [selectedGoal, setSelectedGoal] = useState(null);
 
     const handleOptionClick = (event, goal) => {
@@ -15,8 +15,13 @@ export default function WhatBodyType({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What's your body type?</h2>
             <div onClick={(event) => handleOptionClick(event, 'ectomorph')}>
                 <label>

@@ -33,34 +33,34 @@ export default function Questionnaire() {
         }
     };
 
-    // const handleGoBack = () => {
-    //     setStep((prevStep) => prevStep - 1);
-    // };
+    const handleGoBack = () => {
+        setStep((prevStep) => prevStep - 1);
+    };
 
     return (
         <>
             {step === 1 && <DoesUserHaveAccount onContinue={handleContinue} />}
-            {step === 2 && <ImReady onContinue={handleContinue} />}
-            {step === 3 && <MainGoal onContinue={handleContinue} />}
-            {step === 4 && <YourInterest onContinue={handleContinue} />}
-            {step === 5 && <WhatGender onContinue={handleContinue} />}
-            {step === 6 && <SpecialPrograms onContinue={handleContinue} />}
-            {step === 7 && <WhereWorkout onContinue={handleContinue} />}
-            {step === 8 && <WhereAttention onContinue={handleContinue} />}
-            {step === 9 && <WhatBodyType onContinue={handleContinue} />}
-            {step === 10 && <WhatDreamShapeBody onContinue={handleContinue} />}
-            {step === 11 && <WhatTypicalDay onContinue={handleContinue} />}
-            {step === 12 && <WhatEnergy onContinue={handleContinue} />}
-            {step === 13 && <HowActive onContinue={handleContinue} />}
-            {step === 14 && <SendentaryLifestyle onContinue={handleContinue} />}
-            {step === 15 && <HowMuchSleep onContinue={handleContinue} />}
-            {step === 16 && <DietType onContinue={handleContinue} />}
-            {step === 17 && <NutritionToExclude onContinue={handleContinue} />}
-            {step === 18 && <BadHabits onContinue={handleContinue} />}
-            {step === 19 && <WhatHeight onContinue={handleContinue} />}
-            {step === 20 && <WhatWeight onContinue={handleContinue} />}
-            {step === 21 && <GoalWeight onContinue={handleContinue} />}
-            {step === 22 && <DateOfBirth onContinue={handleContinue} />}
+            {step === 2 && <ImReady onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 3 && <MainGoal onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 4 && <YourInterest onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 5 && <WhatGender onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 6 && <SpecialPrograms onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 7 && <WhereWorkout onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 8 && <WhereAttention onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 9 && <WhatBodyType onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 10 && <WhatDreamShapeBody onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 11 && <WhatTypicalDay onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 12 && <WhatEnergy onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 13 && <HowActive onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 14 && <SendentaryLifestyle onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 15 && <HowMuchSleep onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 16 && <DietType onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 17 && <NutritionToExclude onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 18 && <BadHabits onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 19 && <WhatHeight onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 20 && <WhatWeight onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 21 && <GoalWeight onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 22 && <DateOfBirth onContinue={handleContinue} onGoBack={handleGoBack} />}
         </>
     );
 }

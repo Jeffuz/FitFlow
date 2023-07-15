@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function YourInterest({ onContinue }) {
+export default function YourInterest({ onContinue, onGoBack }) {
     const [selectedGoals, setSelectedGoals] = useState([]);
 
     const handleOptionToggle = (goal) => {
@@ -25,8 +25,13 @@ export default function YourInterest({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What are you interested in?</h2>
             <div onClick={() => handleOptionToggle('meal-plans')}>
                 <label>

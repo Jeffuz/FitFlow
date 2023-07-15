@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function WhatHeight({ onContinue }) {
+export default function WhatHeight({ onContinue, onGoBack }) {
     const [unit, setUnit] = useState('inches');
     const [feet, setFeet] = useState('');
     const [inches, setInches] = useState('');
@@ -27,8 +27,13 @@ export default function WhatHeight({ onContinue }) {
         onContinue(feet, inches, unit);
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>Enter Your Height</h2>
             <div>
                 <label>

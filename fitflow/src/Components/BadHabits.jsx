@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function BadHabits({ onContinue }) {
+export default function BadHabits({ onContinue, onGoBack }) {
     const [selectedGoals, setSelectedGoals] = useState([]);
 
     const handleOptionToggle = (goal) => {
@@ -33,8 +33,13 @@ export default function BadHabits({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What bad habits hinder you from reaching your goals?</h2>
             <div onClick={() => handleOptionToggle('i_dont_rest_enough')}>
                 <label>

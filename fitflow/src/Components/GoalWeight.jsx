@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function GoalWeight({ onContinue }) {
+export default function GoalWeight({ onContinue, onGoBack }) {
     const [weight, setWeight] = useState('');
     const [measurementUnit, setMeasurementUnit] = useState('kg');
 
@@ -18,9 +18,14 @@ export default function GoalWeight({ onContinue }) {
     const handleContinue = () => {
         onContinue(weight, measurementUnit);
     };
+    
+    const handleGoBack = () => {
+        onGoBack();
+    };
 
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What is your goal weight?</h2>
             <div>
                 <label>

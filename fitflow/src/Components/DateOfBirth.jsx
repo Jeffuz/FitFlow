@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function DateOfBirth({ onContinue }) {
+export default function DateOfBirth({ onContinue, onGoBack }) {
     const [day, setDay] = useState('');
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
@@ -36,8 +36,13 @@ export default function DateOfBirth({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>Enter Your Date of Birth</h2>
             <div>
                 <label>

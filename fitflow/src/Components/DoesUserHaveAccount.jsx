@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function DoesUserHaveAccount({ onContinue }) {
     const [hasAccount, setHasAccount] = useState(null);
@@ -23,6 +23,9 @@ export default function DoesUserHaveAccount({ onContinue }) {
 
     return (
         <>
+            <Link to="/">
+                <button>&#8592;</button>
+            </Link>
             <h2>Welcome to our fitness community! Are you already part of our journey?</h2>
             <div>
                 <label>

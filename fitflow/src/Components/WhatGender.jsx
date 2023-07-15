@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function WhatGender({ onContinue }) {
+export default function WhatGender({ onContinue, onGoBack }) {
     const [selectedGoal, setSelectedGoal] = useState(null);
 
     const handleOptionClick = (event, goal) => {
@@ -15,12 +15,17 @@ export default function WhatGender({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What's your gender?</h2>
             <div onClick={(event) => handleOptionClick(event, 'male')}>
                 <label>
-                    <strong>Male</strong> 
+                    <strong>Male</strong>
                 </label>
                 <input
                     type="radio"
@@ -30,7 +35,7 @@ export default function WhatGender({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, 'female')}>
                 <label>
-                    <strong>Female</strong> 
+                    <strong>Female</strong>
                 </label>
                 <input
                     type="radio"
@@ -40,7 +45,7 @@ export default function WhatGender({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, 'non_binary')}>
                 <label>
-                    <strong>Non-Binary</strong> 
+                    <strong>Non-Binary</strong>
                 </label>
                 <input
                     type="radio"

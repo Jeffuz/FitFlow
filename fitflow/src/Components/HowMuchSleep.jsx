@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function HowMuchSleep({ onContinue }) {
+export default function HowMuchSleep({ onContinue, onGoBack }) {
     const [selectedSleep, setSelectedSleep] = useState(null);
 
     const handleOptionClick = (event, Sleep) => {
@@ -15,12 +15,17 @@ export default function HowMuchSleep({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>How much sleep do you get?</h2>
             <div onClick={(event) => handleOptionClick(event, 'less_than_5_hours')}>
                 <label>
-                    <strong>Less Than 5 Hours</strong> 
+                    <strong>Less Than 5 Hours</strong>
                 </label>
                 <input
                     type="radio"
@@ -30,7 +35,7 @@ export default function HowMuchSleep({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, '5-6_hours')}>
                 <label>
-                    <strong>5-6 Hours</strong> 
+                    <strong>5-6 Hours</strong>
                 </label>
                 <input
                     type="radio"
@@ -40,7 +45,7 @@ export default function HowMuchSleep({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, '7-8_hours')}>
                 <label>
-                    <strong>7-8 hours</strong> 
+                    <strong>7-8 hours</strong>
                 </label>
                 <input
                     type="radio"
@@ -50,7 +55,7 @@ export default function HowMuchSleep({ onContinue }) {
             </div>
             <div onClick={(event) => handleOptionClick(event, 'more_than_8_hours')}>
                 <label>
-                    <strong>More Than 8 Hours</strong> 
+                    <strong>More Than 8 Hours</strong>
                 </label>
                 <input
                     type="radio"

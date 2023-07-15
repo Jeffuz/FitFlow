@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function WhatDreamShapeBody({ onContinue }) {
+export default function WhatDreamShapeBody({ onContinue, onGoBack }) {
     const [selectedGoal, setSelectedGoal] = useState(null);
 
     const handleOptionClick = (event, goal) => {
@@ -15,8 +15,13 @@ export default function WhatDreamShapeBody({ onContinue }) {
         }
     };
 
+    const handleGoBack = () => {
+        onGoBack();
+    };
+
     return (
         <>
+            <button onClick={handleGoBack}>&#8592;</button>
             <h2>What's your dream body shape?</h2>
             <div onClick={(event) => handleOptionClick(event, 'cut')}>
                 <label>
