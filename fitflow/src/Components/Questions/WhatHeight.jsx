@@ -24,6 +24,18 @@ export default function WhatHeight({ onContinue, onGoBack }) {
     };
 
     const handleContinue = () => {
+        if (unit === 'inches') {
+            if (!feet || !inches) {
+                alert('Please enter your height in feet and inches');
+                return;
+            }
+        } else if (unit === 'cm') {
+            if (!feet) {
+                alert('Please enter your height in centimeters');
+                return;
+            }
+        }
+
         onContinue(feet, inches, unit);
     };
 
