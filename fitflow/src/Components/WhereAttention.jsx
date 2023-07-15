@@ -32,46 +32,50 @@ export default function WhereAttention({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <h2>What area needs the most attention?</h2>
-            <div onClick={() => handleOptionToggle('chest')}>
-                <label>
-                    <strong>Chest</strong>
-                </label>
+            <p className='text-2xl mb-5'>Which area needs the most attention?</p>
+            <div className='mb-2' onClick={() => handleOptionToggle('chest')}>
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedAttention.includes('chest')}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={() => handleOptionToggle('arms')}>
                 <label>
-                    <strong>Arms</strong>
+                    <strong>Chest</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={() => handleOptionToggle('arms')}>
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedAttention.includes('arms')}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={() => handleOptionToggle('abs')}>
                 <label>
-                    <strong>Abs</strong>
+                    <strong>Arms</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={() => handleOptionToggle('abs')}>
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedAttention.includes('abs')}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={() => handleOptionToggle('legs')}>
                 <label>
-                    <strong>Legs</strong>
+                    <strong>Abs</strong>
                 </label>
+            </div>
+            <div className='mb-5' onClick={() => handleOptionToggle('legs')}>
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedAttention.includes('legs')}
                     onChange={() => { }}
                 />
+                <label>
+                    <strong>Legs</strong>
+                </label>
             </div>
             <button onClick={handleContinue}>Next</button>
         </>
