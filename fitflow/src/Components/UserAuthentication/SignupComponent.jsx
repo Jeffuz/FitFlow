@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 const PASSWORDLENGTH = '8';
 const NUMBEROFCAPITALLETTERS = '1';
@@ -15,9 +15,9 @@ export default function SignupComponent() {
 
     if (password !== inputPassword) {
       setIsMatchingPassword(false);
-      return; 
+      return;
     }
-    
+
     setIsMatchingPassword(true);
   }
 
@@ -28,9 +28,9 @@ export default function SignupComponent() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials)
     })
-    
+
   }
-  const handleSignup = async(event) => {
+  const handleSignup = async (event) => {
     event.preventDefault();
 
     const emailCheck = /[\w]+@[A-Za-z]+\.(.){3,}/g
@@ -43,20 +43,20 @@ export default function SignupComponent() {
     let isPSpecial = passSpecialCharacterCheck.test(password);
     let isPUpper = passUpperCaseCheck.test(password);
 
-    if(!isValidEmail){
+    if (!isValidEmail) {
       //setErrorMessage("Email is Invalid");
       console.log("Email Invladi");
       return;
     }
 
-    if(!isPLength || !isPSpecial || !isPUpper || !isMatchingPassword) {
+    if (!isPLength || !isPSpecial || !isPUpper || !isMatchingPassword) {
       console.log("Password Invalid");
-      return;      
+      return;
     }
 
 
 
-    let result = await signupUser({email, password});
+    let result = await signupUser({ email, password });
     let convert = await result.json();
     console.log(convert);
     // Fetch database
@@ -66,17 +66,17 @@ export default function SignupComponent() {
     <div>
       <p>Signup Component</p>
       <form onSubmit={handleSignup}>
-        <label>Email: </label> <br/>
+        <label>Email: </label> <br />
 
-        <input type="text" onChange={e => setEmail(e.target.value)} /> <br/>
+        <input type="text" onChange={e => setEmail(e.target.value)} /> <br />
 
-        <label>Password: </label> <br/>
+        <label>Password: </label> <br />
 
-        <input type="password" onChange={e => setPassword(e.target.value)}/> <br/>
+        <input type="password" onChange={e => setPassword(e.target.value)} /> <br />
 
-        <label>Confirm Password: </label> <br/>
+        <label>Confirm Password: </label> <br />
 
-        <input type="password" onChange={checkMatchingPassword}/> <br/>
+        <input type="password" onChange={checkMatchingPassword} /> <br />
 
         <button type="submit">Submit</button>
       </form>

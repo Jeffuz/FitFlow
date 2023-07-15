@@ -42,9 +42,20 @@ export default function Questionnaire() {
         setStep((prevStep) => prevStep - 1);
     };
 
-    useEffect(() => {
-        console.log(userData); // Log the userData object whenever it changes
-    }, [userData]);
+    const sendDataToBackend = async () => {
+        try {
+            const response = await fetch('http://127.0.0.1:5000', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+
+        } catch (error) {
+            return;
+        }
+    };
 
     return (
         <>
@@ -70,6 +81,8 @@ export default function Questionnaire() {
             {step === 20 && <WhatWeight onContinue={handleContinue} onGoBack={handleGoBack} />}
             {step === 21 && <GoalWeight onContinue={handleContinue} onGoBack={handleGoBack} />}
             {step === 22 && <DateOfBirth onContinue={handleContinue} onGoBack={handleGoBack} />}
-        </>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {step === 22 && (<button onClick={sendDataToBackend}>Submit</button>)}
+            </>
     );
 }
