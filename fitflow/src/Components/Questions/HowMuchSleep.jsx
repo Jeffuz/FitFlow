@@ -23,44 +23,44 @@ export default function HowMuchSleep({ onContinue, onGoBack }) {
         <>
             <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>How much sleep do you get?</p>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'less_than_5_hours')}>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'less than 5 hours')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedSleep === 'less_than_5_hours'}
+                    checked={selectedSleep === 'less than 5 hours'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>Less Than 5 Hours</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, '5-6_hours')}>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, '5-6 hours')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedSleep === '5-6_hours'}
+                    checked={selectedSleep === '5-6 hours'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>5-6 Hours</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, '7-8_hours')}>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, '7-8 hours')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedSleep === '7-8_hours'}
+                    checked={selectedSleep === '7-8 hours'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>7-8 hours</strong>
                 </label>
             </div>
-            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'more_than_8_hours')}>
+            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'more than 8 hours')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedSleep === 'more_than_8_hours'}
+                    checked={selectedSleep === 'more than 8 hours'}
                     onChange={() => { }}
                 />
                 <label>
