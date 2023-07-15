@@ -1,8 +1,8 @@
 import React from "react";
-import {useState} from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function LoginComponent() { 
+export default function LoginComponent() {
 
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -14,22 +14,21 @@ export default function LoginComponent() {
 
     return fetch(`http://127.0.0.1:5000/login?`, {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials)
     });
   }
 
-  const handleLogin = async(event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
 
-    let result = await loginUser({email, password});
+    let result = await loginUser({ email, password });
     let convert = await result.json();
     console.log(convert);
 
     let returnResult = convert["Result"];
 
-    if(returnResult !== "Success")
-    {
+    if (returnResult !== "Success") {
       console.log("Incorrect data");
       return
       // Retry
@@ -43,13 +42,13 @@ export default function LoginComponent() {
     <div>
       <p>Login Component</p>
       <form onSubmit={handleLogin}>
-        <label>Email: </label> <br/>
+        <label>Email: </label> <br />
 
-        <input type="text" onChange={e => setEmail(e.target.value)} /> <br/>
+        <input type="text" onChange={e => setEmail(e.target.value)} /> <br />
 
-        <label>Password: </label> <br/>
+        <label>Password: </label> <br />
 
-        <input type="password" onChange={e => setPassword(e.target.value)}/> <br/>
+        <input type="password" onChange={e => setPassword(e.target.value)} /> <br />
 
         <button type="submit">Submit</button>
       </form>
