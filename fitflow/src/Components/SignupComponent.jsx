@@ -6,23 +6,19 @@ export default function SignupComponent() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  async function signupUser(email, pass) {
+  async function signupUser(credentials) {
+
     return fetch(`http://127.0.0.1:5000/signup?`, {
       method: 'POST',
-      header: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        'email': email,
-        'password': pass,
-      })
-    });
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(credentials)
+    })
+    
   }
   const handleSignup = async(event) => {
     event.preventDefault();
-    
-    console.log(email);
-    console.log(password);
 
-    let result = await signupUser(email, password);
+    let result = await signupUser({email, password});
     let convert = await result.json();
     console.log(convert);
     // Fetch database
