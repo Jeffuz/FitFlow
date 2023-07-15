@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
-export default function WhatHeight({ onContinue }) {
+export default function WhatWeight({ onContinue }) {
     const [weight, setWeight] = useState('');
     const [measurementUnit, setMeasurementUnit] = useState('kg');
 
     const handleInputChange = (event) => {
-        setWeight(event.target.value);
+        const value = event.target.value;
+        if (value >= 0 && value <= 660) {
+            setWeight(value);
+        }
     };
 
     const handleUnitChange = (event) => {
@@ -13,7 +16,6 @@ export default function WhatHeight({ onContinue }) {
     };
 
     const handleContinue = () => {
-
         onContinue(weight, measurementUnit);
     };
 
@@ -27,6 +29,8 @@ export default function WhatHeight({ onContinue }) {
                         value={weight}
                         onChange={handleInputChange}
                         placeholder={`Enter your weight in ${measurementUnit}`}
+                        min={0}
+                        max={660}
                     />
                     {measurementUnit}
                 </label>
