@@ -2,6 +2,8 @@ from flask import Flask, request
 import pymongo
 from pymongo import MongoClient
 
+import openai
+
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -15,6 +17,24 @@ db = cluster["FitFlow"]
 
 collection = db["Users"]
 #print(collection)
+
+openai.api_key = "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"
+model = "gpt-3.5-turbo"
+
+CHATMODELROLE = 'You are a gym planner who helps clients achieve their goals.'
+
+def gernerateWorkoutPlan(userPlanMessage):
+    print(userPlanMessage)
+
+    # response = openai.ChatCompletion.create(model = model, messages = [
+    #     {"role": "system", "content": CHATMODELROLE},
+    #     {"role": "user", "content": userPlanMessage}
+    # ], max_tokens=50)
+
+    # generated_text = response["choices"][0]["message"]["content"]
+
+    # print(generated_text)
+
 
 def doesUserExist(userEmail):      
     user = list(collection.find({ "Email": userEmail}))
