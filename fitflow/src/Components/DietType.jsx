@@ -22,96 +22,114 @@ export default function DietType({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <h2>Choose your diet type</h2>
-            <div onClick={(event) => handleOptionClick(event, 'traditional')}>
-                <label>
-                    <strong>Traditional</strong>
-                </label>
+            <p className='text-2xl mb-5'>Choose your diet type</p>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'traditional')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'traditional'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'vegetarian')}>
                 <label>
-                    <strong>Vegetarian</strong>
+                    <strong>Traditional</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'vegetarian')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'vegetarian'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'keto')}>
                 <label>
-                    <strong>Keto</strong>
+                    <strong>Vegetarian</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'keto')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'keto'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'pescatarian')}>
                 <label>
-                    <strong>Pescatarian</strong>
+                    <strong>Keto</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'pescatarian')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'pescatarian'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'vegan')}>
                 <label>
-                    <strong>Vegan &#40;Plant diet&#41;</strong>
+                    <strong>Pescatarian</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'vegan')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'vegan'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'paleo')}>
                 <label>
-                    <strong>Paleo</strong>
+                    <strong>Vegan &#40;Plant diet&#41;</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'paleo')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'paleo'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'mediterranean')}>
                 <label>
-                    <strong>Mediterranean</strong>
+                    <strong>Paleo</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'mediterranean')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'mediterranean'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'diabete_type_1')}>
                 <label>
-                    <strong>Diabete Type 1</strong>
+                    <strong>Mediterranean</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'diabete_type_1')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'diabete_type_1'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'diabete_type_2')}>
                 <label>
-                    <strong>Diabete Type 2</strong>
+                    <strong>Diabete Type 1</strong>
                 </label>
+            </div>
+            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'diabete_type_2')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedGoal === 'diabete_type_2'}
                     onChange={() => { }}
                 />
+                <label>
+                    <strong>Diabete Type 2</strong>
+                </label>
             </div>
             <button onClick={handleContinue}>Next</button>
         </>

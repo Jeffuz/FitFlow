@@ -22,56 +22,66 @@ export default function NutritionToExclude({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <h2>What do you want to exclude?</h2>
-            <div onClick={(event) => handleOptionClick(event, 'dairy')}>
-                <label>
-                    <strong>Dairy</strong>
-                </label>
+            <p className='text-2xl mb-5'>What do you want to exclude?</p>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'dairy')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedNutrition === 'dairy'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'gluten')}>
                 <label>
-                    <strong>Gluten</strong>
+                    <strong>Dairy</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'gluten')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedNutrition === 'gluten'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'eggs')}>
                 <label>
-                    <strong>Eggs</strong>
+                    <strong>Gluten</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'eggs')}>
+            
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedNutrition === 'eggs'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'fish')}>
                 <label>
-                    <strong>Fish</strong>
+                    <strong>Eggs</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'fish')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedNutrition === 'fish'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'i_eat_everything')}>
                 <label>
-                    <strong>I eat everything</strong>
+                    <strong>Fish</strong>
                 </label>
+            </div>
+            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'i_eat_everything')}>
+                
                 <input
                     type="radio"
+                    className='mr-1'
                     checked={selectedNutrition === 'i_eat_everything'}
                     onChange={() => { }}
                 />
+                <label>
+                    <strong>I eat everything</strong>
+                </label>
             </div>
             <button onClick={handleContinue}>Next</button>
         </>
