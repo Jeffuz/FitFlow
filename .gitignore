@@ -4,7 +4,7 @@ fitflowServer/env
 /.pnp
 .pnp.js
 
-/env
+/fitflow/env
 
 
 # testing
