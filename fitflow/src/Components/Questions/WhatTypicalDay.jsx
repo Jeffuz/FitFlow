@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 export default function WhatTypicalDay({ onContinue, onGoBack }) {
-    const [selectedGoal, setSelectedGoal] = useState(null);
+    const [selectedTypicalDay, setSelectedTypicalDay] = useState(null);
 
-    const handleOptionClick = (event, goal) => {
-        setSelectedGoal(goal);
+    const handleOptionClick = (event, TypicalDay) => {
+        setSelectedTypicalDay(TypicalDay);
     };
 
     const handleContinue = () => {
-        if (selectedGoal) {
-            onContinue();
+        if (selectedTypicalDay) {
+            onContinue({typical_day: selectedTypicalDay});
         } else {
             alert('Please select an option');
         }
@@ -27,7 +27,7 @@ export default function WhatTypicalDay({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'at_the_office'}
+                    checked={selectedTypicalDay === 'at_the_office'}
                     onChange={() => { }}
                 />
                 <label>
@@ -38,7 +38,7 @@ export default function WhatTypicalDay({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'walking_daily'}
+                    checked={selectedTypicalDay === 'walking_daily'}
                     onChange={() => { }}
                 />
                 <label>
@@ -49,7 +49,7 @@ export default function WhatTypicalDay({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'working_physically'}
+                    checked={selectedTypicalDay === 'working_physically'}
                     onChange={() => { }}
                 />
                 <label>
@@ -60,7 +60,7 @@ export default function WhatTypicalDay({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'mostly_at_home'}
+                    checked={selectedTypicalDay === 'mostly_at_home'}
                     onChange={() => { }}
                 />
                 <label>

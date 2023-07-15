@@ -18,8 +18,7 @@ export default function YourInterest({ onContinue, onGoBack }) {
 
     const handleContinue = () => {
         if (selectedGoals.length > 0) {
-            // console.log('Selected Goals:', selectedGoals);
-            onContinue(selectedGoals);
+            onContinue({ goals: selectedGoals });
         } else {
             alert('Please select at least one interest');
         }
@@ -33,36 +32,36 @@ export default function YourInterest({ onContinue, onGoBack }) {
         <>
             <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>What are you interested in?</p>
-            <div className='mb-2' onClick={() => handleOptionToggle('meal-plans')}>
-                
+            <div className='mb-2' onClick={() => handleOptionToggle('meal plans')}>
+
                 <input
                     className='mr-1'
                     type="radio"
-                    checked={selectedGoals.includes('meal-plans')}
+                    checked={selectedGoals.includes('meal plans')}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>Meal Plans:</strong> I want to have a set menu to achieve faster results
                 </label>
             </div>
-            <div className='mb-2' onClick={() => handleOptionToggle('calorie-counting')}>
-                
+            <div className='mb-2' onClick={() => handleOptionToggle('calorie counting')}>
+
                 <input
                     className='mr-1'
                     type="radio"
-                    checked={selectedGoals.includes('calorie-counting')}
+                    checked={selectedGoals.includes('calorie counting')}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>Calorie Counting:</strong> I like to be precise and know the exact macros I consume
                 </label>
             </div>
-            <div className='mb-2' onClick={() => handleOptionToggle('workout-plans')}>
-                
+            <div className='mb-2' onClick={() => handleOptionToggle('workout plans')}>
+
                 <input
                     className='mr-1'
                     type="radio"
-                    checked={selectedGoals.includes('workout-plans')}
+                    checked={selectedGoals.includes('workout plans')}
                     onChange={() => { }}
                 />
                 <label>
@@ -70,7 +69,7 @@ export default function YourInterest({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-5' onClick={() => handleOptionToggle('fasting')}>
-                
+
                 <input
                     className='mr-1'
                     type="radio"

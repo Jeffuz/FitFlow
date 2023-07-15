@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 
 export default function WhereWorkout({ onContinue, onGoBack }) {
-    const [selectedGoal, setSelectedGoal] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
-    const handleOptionClick = (event, goal) => {
-        setSelectedGoal(goal);
-    };
+  const handleOptionClick = (event, location) => {
+    setSelectedLocation(location);
+  };
 
-    const handleContinue = () => {
-        if (selectedGoal) {
-            onContinue();
-        } else {
-            alert('Please select an option');
-        }
-    };
+  const handleContinue = () => {
+    if (selectedLocation) {
+      onContinue({location: selectedLocation}); // Pass selected location as a parameter
+    } else {
+      alert('Please select a workout location');
+    }
+  };
 
-    const handleGoBack = () => {
-        onGoBack();
-    };
+  const handleGoBack = () => {
+    onGoBack();
+  };
 
     return (
         <>
@@ -27,7 +27,7 @@ export default function WhereWorkout({ onContinue, onGoBack }) {
                 <input
                     className='mr-1'
                     type="radio"
-                    checked={selectedGoal === 'gym'}
+                    checked={selectedLocation === 'gym'}
                     onChange={() => { }}
                 />
                 <label>
@@ -38,7 +38,7 @@ export default function WhereWorkout({ onContinue, onGoBack }) {
                 <input
                     className='mr-1'
                     type="radio"
-                    checked={selectedGoal === 'home'}
+                    checked={selectedLocation === 'home'}
                     onChange={() => { }}
                 />
                 <label>

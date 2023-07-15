@@ -9,7 +9,7 @@ export default function SendentaryLifestyle({ onContinue, onGoBack }) {
 
     const handleContinue = () => {
         if (selectedStyle) {
-            onContinue();
+            onContinue({sendentary: selectedStyle});
         } else {
             alert('Please select an option');
         }
