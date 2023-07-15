@@ -10,20 +10,26 @@ export default function WhatHeight({ onContinue, onGoBack }) {
     };
 
     const handleFeetChange = (event) => {
-        const value = event.target.value;
-        if (value >= 3 && value <= 9) {
-            setFeet(value);
-        }
+        setFeet(event.target.value);
     };
 
     const handleInchesChange = (event) => {
-        const value = event.target.value;
-        if (value >= 0 && value <= 11) {
-            setInches(value);
-        }
+        setInches(event.target.value);
     };
 
     const handleContinue = () => {
+        if (unit === 'inches') {
+            if (!feet || !inches) {
+                alert('Please enter your height in feet and inches');
+                return;
+            }
+        } else if (unit === 'cm') {
+            if (!feet) {
+                alert('Please enter your height in centimeters');
+                return;
+            }
+        }
+
         onContinue(feet, inches, unit);
     };
 
@@ -48,25 +54,34 @@ export default function WhatHeight({ onContinue, onGoBack }) {
                 <div>
                     <label>
                         Feet:
-                        <input
-                            type="number"
-                            value={feet}
-                            onChange={handleFeetChange}
-                            placeholder="Feet"
-                            min={3}
-                            max={9}
-                        />
+                        <select value={feet} onChange={handleFeetChange}>
+                            <option value="">Select</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
                     </label>
                     <label>
                         Inches:
-                        <input
-                            type="number"
-                            value={inches}
-                            onChange={handleInchesChange}
-                            placeholder="Inches"
-                            min={0}
-                            max={11}
-                        />
+                        <select value={inches} onChange={handleInchesChange}>
+                            <option value="">Select</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                        </select>
                     </label>
                 </div>
             )}
