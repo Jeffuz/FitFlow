@@ -1,33 +1,32 @@
 import React, { useState } from 'react';
 
 export default function BadHabits({ onContinue, onGoBack }) {
-    const [selectedGoals, setSelectedGoals] = useState([]);
+    const [selectedHabitsupdatedHabits, setSelectedHabitsupdatedHabits] = useState([]);
 
-    const handleOptionToggle = (goal) => {
-        if (goal === "none_of_the_above") {
-            setSelectedGoals([goal]);
+    const handleOptionToggle = (habit) => {
+        if (habit === "none of the above") {
+            setSelectedHabitsupdatedHabits([habit]);
         } else {
-            const updatedGoals = [...selectedGoals];
-            const goalIndex = updatedGoals.indexOf(goal);
+            const updatedHabits = [...selectedHabitsupdatedHabits];
+            const habitIndex = updatedHabits.indexOf(habit);
 
-            if (goalIndex === -1) {
-                updatedGoals.push(goal);
+            if (habitIndex === -1) {
+                updatedHabits.push(habit);
             } else {
-                updatedGoals.splice(goalIndex, 1);
+                updatedHabits.splice(habitIndex, 1);
             }
 
-            if (updatedGoals.length > 0 && updatedGoals.includes("none_of_the_above")) {
-                updatedGoals.splice(updatedGoals.indexOf("none_of_the_above"), 1);
+            if (updatedHabits.length > 0 && updatedHabits.includes("none of the above")) {
+                updatedHabits.splice(updatedHabits.indexOf("none of the above"), 1);
             }
 
-            setSelectedGoals(updatedGoals);
+            setSelectedHabitsupdatedHabits(updatedHabits);
         }
     };
 
     const handleContinue = () => {
-        if (selectedGoals.length > 0) {
-            // console.log('Selected Goals:', selectedGoals);
-            onContinue(selectedGoals);
+        if (selectedHabitsupdatedHabits.length > 0) {
+            onContinue({habits: selectedHabitsupdatedHabits});
         } else {
             alert('Please select an option');
         }
@@ -40,73 +39,73 @@ export default function BadHabits({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <p className='text-2xl mb-5'>What bad habits hinder you from reaching your goals?</p>
-            <div className='mb-2' onClick={() => handleOptionToggle('i_dont_rest_enough')}>
+            <p className='text-2xl mb-5'>What bad habits hinder you from reaching your HabitsupdatedHabits?</p>
+            <div className='mb-2' onClick={() => handleOptionToggle('i dont rest enough')}>
                 
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoals.includes('i_dont_rest_enough')}
+                    checked={selectedHabitsupdatedHabits.includes('i dont rest enough')}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>I Don't Rest Enough</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={() => handleOptionToggle('i_have_a_sweet_tooth')}>
+            <div className='mb-2' onClick={() => handleOptionToggle('i have a sweet tooth')}>
                 
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoals.includes('i_have_a_sweet_tooth')}
+                    checked={selectedHabitsupdatedHabits.includes('i have a sweet tooth')}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>I have a Sweeth Tooth</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={() => handleOptionToggle('i_love_salty_food')}>
+            <div className='mb-2' onClick={() => handleOptionToggle('i love salty food')}>
                 
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoals.includes('i_love_salty_food')}
+                    checked={selectedHabitsupdatedHabits.includes('i love salty food')}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>I Love Salty Foods</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={() => handleOptionToggle('i_have_too_much_soda')}>
+            <div className='mb-2' onClick={() => handleOptionToggle('i have too much soda')}>
                 
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoals.includes('i_have_too_much_soda')}
+                    checked={selectedHabitsupdatedHabits.includes('i have too much soda')}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>I have Too Much Soda</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={() => handleOptionToggle('i_enjoy_midnight_snacks')}>
+            <div className='mb-2' onClick={() => handleOptionToggle('i enjoy midnight snacks')}>
                 
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoals.includes('i_enjoy_midnight_snacks')}
+                    checked={selectedHabitsupdatedHabits.includes('i enjoy midnight snacks')}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>I Enjoy Midnight Snacks</strong>
                 </label>
             </div>
-            <div className='mb-5' onClick={() => handleOptionToggle('none_of_the_above')}>
+            <div className='mb-5' onClick={() => handleOptionToggle('none of the above')}>
                 
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoals.includes('none_of_the_above')}
+                    checked={selectedHabitsupdatedHabits.includes('none of the above')}
                     onChange={() => { }}
                 />
                 <label>

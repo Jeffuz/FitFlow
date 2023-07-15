@@ -22,12 +22,16 @@ import GoalWeight from '../Components/Questions/GoalWeight';
 import DateOfBirth from '../Components/Questions/DateOfBirth';
 import WhatHeight from '../Components/Questions/WhatHeight';
 
-import './styles.css'; // Import the CSS file 
+import './styles.css'; // Import the CSS file
 
 export default function Questionnaire() {
     const [step, setStep] = useState(1);
+    const [userData, setUserData] = useState({});
 
-    const handleContinue = () => {
+    const handleContinue = (data) => {
+        console.log(data); // Log the selected goal
+        setUserData((prevData) => ({ ...prevData, ...data }));
+
         if (step === 2) {
             setStep(3);
         } else {
@@ -41,15 +45,15 @@ export default function Questionnaire() {
 
     return (
         <>
-            {step === 1  && <DoesUserHaveAccount onContinue={handleContinue} />}
-            {step === 2  && <ImReady onContinue={handleContinue} onGoBack={handleGoBack} />}
-            {step === 3  && <MainGoal onContinue={handleContinue} onGoBack={handleGoBack} />}
-            {step === 4  && <YourInterest onContinue={handleContinue} onGoBack={handleGoBack} />}
-            {step === 5  && <WhatGender onContinue={handleContinue} onGoBack={handleGoBack} />}
-            {step === 6  && <SpecialPrograms onContinue={handleContinue} onGoBack={handleGoBack} />}
-            {step === 7  && <WhereWorkout onContinue={handleContinue} onGoBack={handleGoBack} />}
-            {step === 8  && <WhereAttention onContinue={handleContinue} onGoBack={handleGoBack} />}
-            {step === 9  && <WhatBodyType onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 1 && <DoesUserHaveAccount onContinue={handleContinue} />}
+            {step === 2 && <ImReady onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 3 && <MainGoal onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 4 && <YourInterest onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 5 && <WhatGender onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 6 && <SpecialPrograms onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 7 && <WhereWorkout onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 8 && <WhereAttention onContinue={handleContinue} onGoBack={handleGoBack} />}
+            {step === 9 && <WhatBodyType onContinue={handleContinue} onGoBack={handleGoBack} />}
             {step === 10 && <WhatDreamShapeBody onContinue={handleContinue} onGoBack={handleGoBack} />}
             {step === 11 && <WhatTypicalDay onContinue={handleContinue} onGoBack={handleGoBack} />}
             {step === 12 && <WhatEnergy onContinue={handleContinue} onGoBack={handleGoBack} />}

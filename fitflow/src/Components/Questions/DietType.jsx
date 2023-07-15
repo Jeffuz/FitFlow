@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 export default function DietType({ onContinue, onGoBack }) {
-    const [selectedGoal, setSelectedGoal] = useState(null);
+    const [selectedDietType, setSelectedDietType] = useState(null);
 
     const handleOptionClick = (event, Diet) => {
-        setSelectedGoal(Diet);
+        setSelectedDietType(Diet);
     };
 
     const handleContinue = () => {
-        if (selectedGoal) {
-            onContinue();
+        if (selectedDietType) {
+            onContinue({diet_type: selectedDietType});
         } else {
             alert('Please select an option');
         }
@@ -28,7 +28,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'traditional'}
+                    checked={selectedDietType === 'traditional'}
                     onChange={() => { }}
                 />
                 <label>
@@ -40,7 +40,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'vegetarian'}
+                    checked={selectedDietType === 'vegetarian'}
                     onChange={() => { }}
                 />
                 <label>
@@ -52,7 +52,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'keto'}
+                    checked={selectedDietType === 'keto'}
                     onChange={() => { }}
                 />
                 <label>
@@ -64,7 +64,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'pescatarian'}
+                    checked={selectedDietType === 'pescatarian'}
                     onChange={() => { }}
                 />
                 <label>
@@ -76,7 +76,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'vegan'}
+                    checked={selectedDietType === 'vegan'}
                     onChange={() => { }}
                 />
                 <label>
@@ -88,7 +88,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'paleo'}
+                    checked={selectedDietType === 'paleo'}
                     onChange={() => { }}
                 />
                 <label>
@@ -100,31 +100,31 @@ export default function DietType({ onContinue, onGoBack }) {
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'mediterranean'}
+                    checked={selectedDietType === 'mediterranean'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>Mediterranean</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'diabete_type_1')}>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'diabete type 1')}>
                 
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'diabete_type_1'}
+                    checked={selectedDietType === 'diabete type 1'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>Diabete Type 1</strong>
                 </label>
             </div>
-            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'diabete_type_2')}>
+            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'diabete type 2')}>
                 
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedGoal === 'diabete_type_2'}
+                    checked={selectedDietType === 'diabete type 2'}
                     onChange={() => { }}
                 />
                 <label>

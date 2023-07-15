@@ -16,11 +16,7 @@ export default function WhatWeight({ onContinue, onGoBack }) {
     };
 
     const handleContinue = () => {
-        if (weight) {
-            onContinue(weight, measurementUnit);
-        } else {
-            alert('Please enter your goal weight');
-        }
+        onContinue({current_weight: weight, unit: measurementUnit});
     };
 
     const handleGoBack = () => {

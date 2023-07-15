@@ -9,7 +9,7 @@ export default function NutritionToExclude({ onContinue, onGoBack }) {
 
     const handleContinue = () => {
         if (selectedNutrition) {
-            onContinue();
+            onContinue({nutrition: selectedNutrition});
         } else {
             alert('Please select an option');
         }

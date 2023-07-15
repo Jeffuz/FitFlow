@@ -29,8 +29,8 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
 
     const handleContinue = () => {
         if (day && month && year) {
-            const birthday = new Date(year, month - 1, day);
-            onContinue(birthday);
+            const birthday = new Date(year, month - 1, day, 0, 0, 0);
+            onContinue({ birthday });
         } else {
             alert('Please enter a valid date of birth');
         }
@@ -41,14 +41,17 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
     };
 
     const currentYear = new Date().getFullYear();
-    const yearOptions = Array.from({ length: currentYear - 1899 }, (_, index) => currentYear - index);
+    const yearOptions = Array.from(
+        { length: currentYear - 1899 },
+        (_, index) => currentYear - index
+    );
     const monthOptions = Array.from({ length: 12 }, (_, index) => index + 1);
     const dayOptions = Array.from({ length: 31 }, (_, index) => index + 1);
 
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <p className='text-2xl mb-5'>Enter Your Date of Birth</p>
+            <p className="text-2xl mb-5">Enter Your Date of Birth</p>
             <div>
                 <label>
                     Month:

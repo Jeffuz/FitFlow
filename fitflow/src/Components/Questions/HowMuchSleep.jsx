@@ -9,7 +9,7 @@ export default function HowMuchSleep({ onContinue, onGoBack }) {
 
     const handleContinue = () => {
         if (selectedSleep) {
-            onContinue();
+            onContinue({sleep: selectedSleep});
         } else {
             alert('Please select an option');
         }

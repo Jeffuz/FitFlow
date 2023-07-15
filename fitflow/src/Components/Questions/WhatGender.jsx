@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 export default function WhatGender({ onContinue, onGoBack }) {
-    const [selectedGoal, setSelectedGoal] = useState(null);
+    const [selectedGender, setSelectedGender] = useState(null);
 
-    const handleOptionClick = (event, goal) => {
-        setSelectedGoal(goal);
+    const handleOptionClick = (event, gender) => {
+        setSelectedGender(gender);
     };
 
     const handleContinue = () => {
-        if (selectedGoal) {
-            onContinue();
+        if (selectedGender) {
+            onContinue({ gender: selectedGender }); 
         } else {
             alert('Please select a gender');
         }
@@ -27,7 +27,7 @@ export default function WhatGender({ onContinue, onGoBack }) {
                 <input
                     className='mr-1'
                     type="radio"
-                    checked={selectedGoal === 'male'}
+                    checked={selectedGender === 'male'}
                     onChange={() => { }}
                 />
                 <label>
@@ -38,18 +38,18 @@ export default function WhatGender({ onContinue, onGoBack }) {
                 <input
                     className='mr-1'
                     type="radio"
-                    checked={selectedGoal === 'female'}
+                    checked={selectedGender === 'female'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>Female</strong>
                 </label>
             </div>
-            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'non_binary')}>
+            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'non binary')}>
                 <input
                     className='mr-1'
                     type="radio"
-                    checked={selectedGoal === 'non_binary'}
+                    checked={selectedGender === 'non binary'}
                     onChange={() => { }}
                 />
                 <label>

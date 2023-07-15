@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
 
 export default function WhereAttention({ onContinue, onGoBack }) {
-    const [selectedAttention, setselectedAttention] = useState([]);
+    const [selectedAttention, setSelectedAttention] = useState([]);
 
     const handleOptionToggle = (attention) => {
-        const updateAttention = [...selectedAttention];
-        const attentionIndex = updateAttention.indexOf(attention);
+        const updatedAttention = [...selectedAttention];
+        const attentionIndex = updatedAttention.indexOf(attention);
 
         if (attentionIndex === -1) {
-            updateAttention.push(attention);
+            updatedAttention.push(attention);
         } else {
-            updateAttention.splice(attentionIndex, 1);
+            updatedAttention.splice(attentionIndex, 1);
         }
 
-        setselectedAttention(updateAttention);
+        setSelectedAttention(updatedAttention);
     };
 
     const handleContinue = () => {
         if (selectedAttention.length > 0) {
-            // console.log('Selected area:', selectedAttention);
-            onContinue(selectedAttention);
+            onContinue({attention: selectedAttention}); 
         } else {
-            alert('Please select at least one interest');
+            alert('Please select at least one area');
         }
     };
 

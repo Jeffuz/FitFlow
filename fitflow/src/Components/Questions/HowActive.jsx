@@ -9,7 +9,7 @@ export default function HowActive({ onContinue, onGoBack }) {
 
     const handleContinue = () => {
         if (selectedWorkout) {
-            onContinue();
+            onContinue({active: selectedWorkout});
         } else {
             alert('Please select an option');
         }
@@ -23,44 +23,44 @@ export default function HowActive({ onContinue, onGoBack }) {
         <>
             <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>How active are you?</p>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'not_much')}>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'not much')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedWorkout === 'not_much'}
+                    checked={selectedWorkout === 'not much'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>Not Much</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, '1-2_workouts_a_week')}>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, '1-2 workouts a week')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedWorkout === '1-2_workouts_a_week'}
+                    checked={selectedWorkout === '1-2 workouts a week'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>1-2 Workouts a Week</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, '3-5_workouts_a_week')}>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, '3-5 workouts a week')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedWorkout === '3-5_workouts_a_week'}
+                    checked={selectedWorkout === '3-5 workouts a week'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>3-5 Workouts a Week</strong>
                 </label>
             </div>
-            <div className='mb-5' onClick={(event) => handleOptionClick(event, '5-7_workouts_a_week')}>
+            <div className='mb-5' onClick={(event) => handleOptionClick(event, '5-7 workouts a week')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedWorkout === '5-7_workouts_a_week'}
+                    checked={selectedWorkout === '5-7 workouts a week'}
                     onChange={() => { }}
                 />
                 <label>
