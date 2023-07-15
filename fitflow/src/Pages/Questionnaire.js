@@ -22,6 +22,8 @@ import GoalWeight from '../Components/GoalWeight';
 import DateOfBirth from '../Components/DateOfBirth';
 import WhatHeight from '../Components/WhatHeight';
 
+import './styles.css'; // Import the CSS file 
+
 export default function Questionnaire() {
     const [step, setStep] = useState(1);
 

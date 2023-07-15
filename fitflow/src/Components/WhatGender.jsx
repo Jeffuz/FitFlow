@@ -22,36 +22,39 @@ export default function WhatGender({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <h2>What's your gender?</h2>
-            <div onClick={(event) => handleOptionClick(event, 'male')}>
-                <label>
-                    <strong>Male</strong>
-                </label>
+            <p className='text-2xl mb-5'>What's your gender?</p>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'male')}>
                 <input
+                    className='mr-1'
                     type="radio"
                     checked={selectedGoal === 'male'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'female')}>
                 <label>
-                    <strong>Female</strong>
+                    <strong>Male</strong>
                 </label>
+            </div>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'female')}>
                 <input
+                    className='mr-1'
                     type="radio"
                     checked={selectedGoal === 'female'}
                     onChange={() => { }}
                 />
-            </div>
-            <div onClick={(event) => handleOptionClick(event, 'non_binary')}>
                 <label>
-                    <strong>Non-Binary</strong>
+                    <strong>Female</strong>
                 </label>
+            </div>
+            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'non_binary')}>
                 <input
+                    className='mr-1'
                     type="radio"
                     checked={selectedGoal === 'non_binary'}
                     onChange={() => { }}
                 />
+                <label>
+                    <strong>Non-Binary</strong>
+                </label>
             </div>
             <button onClick={handleContinue}>Next</button>
         </>

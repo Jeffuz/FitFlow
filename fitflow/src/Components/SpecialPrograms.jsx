@@ -50,36 +50,36 @@ export default function SpecialPrograms({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <h2>Do you want to include special programs?</h2>
-            <div onClick={() => handleOptionToggle('no_thanks')}>
+            <p className='text-2xl mb-5'>Do you want to include special programs?</p>
+            <div className='mb-2' onClick={() => handleOptionToggle('no_thanks')}>
+                <input className='mr-1' type="radio" checked={selectedGoals.includes('no_thanks')} onChange={() => { }} />
                 <label>
                     <strong>No Thanks</strong>
                 </label>
-                <input type="radio" checked={selectedGoals.includes('no_thanks')} onChange={() => { }} />
             </div>
-            <div onClick={() => handleOptionToggle('sensitive_back')}>
+            <div className='mb-2' onClick={() => handleOptionToggle('sensitive_back')}>
+            <input className='mr-1' type="radio" checked={selectedGoals.includes('sensitive_back')} onChange={() => { }} />
                 <label>
                     <strong>Sensitive Back</strong>
                 </label>
-                <input type="radio" checked={selectedGoals.includes('sensitive_back')} onChange={() => { }} />
             </div>
-            <div onClick={() => handleOptionToggle('sensitive_knees')}>
+            <div className='mb-2' onClick={() => handleOptionToggle('sensitive_knees')}>
+                <input className='mr-1' type="radio" checked={selectedGoals.includes('sensitive_knees')} onChange={() => { }} />
                 <label>
                     <strong>Sensitive Knees</strong>
                 </label>
-                <input type="radio" checked={selectedGoals.includes('sensitive_knees')} onChange={() => { }} />
             </div>
-            <div onClick={() => handleOptionToggle('limited_mobility')}>
+            <div className='mb-2' onClick={() => handleOptionToggle('limited_mobility')}>
+                <input className='mr-1' type="radio" checked={selectedGoals.includes('limited_mobility')} onChange={() => { }} />
                 <label>
                     <strong>Limited Mobility (Wheelchair)</strong>
                 </label>
-                <input type="radio" checked={selectedGoals.includes('limited_mobility')} onChange={() => { }} />
             </div>
-            <div onClick={() => handleOptionToggle('prenatal')}>
+            <div className='mb-2' onClick={() => handleOptionToggle('prenatal')}>
+                <input className='mr-1' type="radio" checked={selectedGoals.includes('prenatal')} onChange={() => { }} />
                 <label>
                     <strong>Prenatal</strong>
                 </label>
-                <input type="radio" checked={selectedGoals.includes('prenatal')} onChange={() => { }} />
                 {selectedGoals.includes('prenatal') && (
                     <div>
                         <p>Please Note:</p>
@@ -87,11 +87,11 @@ export default function SpecialPrograms({ onContinue, onGoBack }) {
                     </div>
                 )}
             </div>
-            <div onClick={() => handleOptionToggle('postnatal')}>
+            <div className='mb-5' onClick={() => handleOptionToggle('postnatal')}>
+                <input className='mr-1' type="radio" checked={selectedGoals.includes('postnatal')} onChange={() => { }} />
                 <label>
                     <strong>Postnatal</strong>
                 </label>
-                <input type="radio" checked={selectedGoals.includes('postnatal')} onChange={() => { }} />
                 {selectedGoals.includes('postnatal') && (
                     <div>
                         <p>Please Note:</p>

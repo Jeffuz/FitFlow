@@ -66,9 +66,9 @@ export default function Home() {
             </button>
         </Link> */}
         <button
-          className="mt-10 drop-shadow-2xl transition duration-200 delay-100 bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white font-bold py-2 px-4 rounded-full"
-          onClick={openModal}
-        >
+          className="mt-10 drop-shadow-2xl transition duration-200 delay-100 
+          bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white font-bold py-2 px-4 rounded-full"
+          onClick={openModal}>
           GET STARTED
         </button>
       </div>
@@ -82,11 +82,11 @@ export default function Home() {
       {isModalOpen && (
         <div className="modal">
           {/* <div className="modal-overlay" onClick={closeModal}></div> */}
-          <div className="modal-content">
+          <div className="py-10 px-12 bg-zinc-200 opacity-90 rounded-3xl">
             {/* <h2>Modal Window</h2>
             <p>This is the content of the modal.</p> */}
             <Questionnaire />
-            <button onClick={closeModal}>Close</button>
+            <button className='pl-1' onClick={closeModal}>| Close</button>
           </div>
         </div>
       )}
