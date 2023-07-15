@@ -20,6 +20,7 @@ import BadHabits from '../Components/BadHabits';
 import WhatWeight from '../Components/WhatWeight';
 import GoalWeight from '../Components/GoalWeight';
 import DateOfBirth from '../Components/DateOfBirth';
+import WhatHeight from '../Components/WhatHeight';
 
 export default function Questionnaire() {
     const [step, setStep] = useState(1);
@@ -56,9 +57,10 @@ export default function Questionnaire() {
             {step === 16 && <DietType onContinue={handleContinue} />}
             {step === 17 && <NutritionToExclude onContinue={handleContinue} />}
             {step === 18 && <BadHabits onContinue={handleContinue} />}
-            {step === 19 && <WhatWeight onContinue={handleContinue} />}
-            {step === 20 && <GoalWeight onContinue={handleContinue} />}
-            {step === 21 && <DateOfBirth onContinue={handleContinue} />}
+            {step === 19 && <WhatHeight onContinue={handleContinue} />}
+            {step === 20 && <WhatWeight onContinue={handleContinue} />}
+            {step === 21 && <GoalWeight onContinue={handleContinue} />}
+            {step === 22 && <DateOfBirth onContinue={handleContinue} />}
         </>
     );
 }
