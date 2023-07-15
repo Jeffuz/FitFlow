@@ -11,7 +11,7 @@ export default function WhatGender({ onContinue }) {
         if (selectedGoal) {
             onContinue();
         } else {
-            alert('Please select a main goal');
+            alert('Please select a gender');
         }
     };
 
