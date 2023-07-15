@@ -39,7 +39,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
-            <p className='text-2xl mb-5'>What bad habits hinder you from reaching your HabitsupdatedHabits?</p>
+            <p className='text-2xl mb-5'>What bad habits hinder you from reaching your goals?</p>
             <div className='mb-2' onClick={() => handleOptionToggle('i dont rest enough')}>
                 
                 <input

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DoesUserHaveAccount from '../Components/Questions/DoesUserHaveAccount';
 import ImReady from '../Components/Questions/ImReady';
 import MainGoal from '../Components/Questions/MainGoal';
@@ -29,7 +29,6 @@ export default function Questionnaire() {
     const [userData, setUserData] = useState({});
 
     const handleContinue = (data) => {
-        console.log(data); // Log the selected goal
         setUserData((prevData) => ({ ...prevData, ...data }));
 
         if (step === 2) {
@@ -42,6 +41,10 @@ export default function Questionnaire() {
     const handleGoBack = () => {
         setStep((prevStep) => prevStep - 1);
     };
+
+    useEffect(() => {
+        console.log(userData); // Log the userData object whenever it changes
+    }, [userData]);
 
     return (
         <>
