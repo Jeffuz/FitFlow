@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DoesUserHaveAccount from '../Components/Questions/DoesUserHaveAccount';
 import ImReady from '../Components/Questions/ImReady';
 import MainGoal from '../Components/Questions/MainGoal';
@@ -29,7 +29,6 @@ export default function Questionnaire() {
     const [userData, setUserData] = useState({});
 
     const handleContinue = (data) => {
-        console.log(data); // Log the selected goal
         setUserData((prevData) => ({ ...prevData, ...data }));
 
         if (step === 2) {
@@ -41,6 +40,21 @@ export default function Questionnaire() {
 
     const handleGoBack = () => {
         setStep((prevStep) => prevStep - 1);
+    };
+
+    const sendDataToBackend = async () => {
+        try {
+            const response = await fetch('http://127.0.0.1:5000', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+
+        } catch (error) {
+            return;
+        }
     };
 
     return (
@@ -67,6 +81,8 @@ export default function Questionnaire() {
             {step === 20 && <WhatWeight onContinue={handleContinue} onGoBack={handleGoBack} />}
             {step === 21 && <GoalWeight onContinue={handleContinue} onGoBack={handleGoBack} />}
             {step === 22 && <DateOfBirth onContinue={handleContinue} onGoBack={handleGoBack} />}
-        </>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {step === 22 && (<button onClick={sendDataToBackend}>Submit</button>)}
+            </>
     );
 }

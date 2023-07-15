@@ -23,44 +23,44 @@ export default function WhatTypicalDay({ onContinue, onGoBack }) {
         <>
             <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>What does your typical day look like?</p>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'at_the_office')}>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'at the office')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedTypicalDay === 'at_the_office'}
+                    checked={selectedTypicalDay === 'at the office'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>At the Office</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'walking_daily')}>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'walking daily')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedTypicalDay === 'walking_daily'}
+                    checked={selectedTypicalDay === 'walking daily'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>Walking Daily</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'working_physically')}>
+            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'working physically')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedTypicalDay === 'working_physically'}
+                    checked={selectedTypicalDay === 'working physically'}
                     onChange={() => { }}
                 />
                 <label>
                     <strong>Working Physically</strong>
                 </label>
             </div>
-            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'mostly_at_home')}>
+            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'mostly at home')}>
                 <input
                     type="radio"
                     className='mr-1'
-                    checked={selectedTypicalDay === 'mostly_at_home'}
+                    checked={selectedTypicalDay === 'mostly at home'}
                     onChange={() => { }}
                 />
                 <label>
