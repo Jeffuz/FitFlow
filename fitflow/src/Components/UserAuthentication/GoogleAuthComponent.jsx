@@ -1,0 +1,1 @@
+import {GoogleLogin} from 'react-google-loging';
