@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import '../Pages/styles.css'; // Import the CSS file
+import '../../Pages/styles.css'; // Import the CSS file
 
 export default function DoesUserHaveAccount({ onContinue }) {
     const [hasAccount, setHasAccount] = useState(null);
