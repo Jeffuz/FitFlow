@@ -93,7 +93,7 @@ def signup():
     try:  
         if request.method == 'POST':
             json = request.get_json()
-            print(json["workoutPrompt"])
+            
             if doesUserExist(json["email"]):
                 return {"Result": "Fail",
                         "Error": "User exists for email"}

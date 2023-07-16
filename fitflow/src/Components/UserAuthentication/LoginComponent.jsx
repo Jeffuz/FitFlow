@@ -32,10 +32,11 @@ export default function LoginComponent() {
     let returnResult = convert["Result"];
 
     if (returnResult !== "Success") {
-      console.log("Incorrect data");
-      return
+      console.log(convert["Error"]);
+      return;
       // Retry
     }
+    
     storeToken(returnResult["Id"]);
     navigate(-1);
     //Fetch database

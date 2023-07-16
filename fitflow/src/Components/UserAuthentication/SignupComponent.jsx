@@ -71,12 +71,12 @@ export default function SignupComponent(workoutString) {
     let returnResult = convert["Result"];
 
     if (returnResult !== "Success") {
-      console.log("Incorrect data");
+      console.log(convert["Error"]);
       return;
       // Retry
     }
-    
-    storeToken(returnResult["Id"]);
+
+    storeToken(convert["Id"]);
     console.log(convert);
     navigate('/displayWorkout');
     // Fetch database
