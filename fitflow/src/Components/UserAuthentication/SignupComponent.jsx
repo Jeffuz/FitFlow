@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DisplayWorkout from "../../Pages/DisplayWorkout";
 
 const PASSWORDLENGTH = '8';
 const NUMBEROFCAPITALLETTERS = '1';

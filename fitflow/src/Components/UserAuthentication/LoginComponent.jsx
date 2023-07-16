@@ -36,9 +36,8 @@ export default function LoginComponent() {
       return;
       // Retry
     }
-    
-    storeToken(returnResult["Id"]);
-    navigate(-1);
+    storeToken(convert["Id"]);
+    navigate('/displayWorkout');
     //Fetch database
   };
 
