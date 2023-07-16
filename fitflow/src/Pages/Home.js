@@ -81,10 +81,7 @@ export default function Home() {
 
       {isModalOpen && (
         <div className="modal">
-          {/* <div className="modal-overlay" onClick={closeModal}></div> */}
           <div className="py-10 px-12 w-150 bg-zinc-200 opacity-90 rounded-3xl">
-            {/* <h2>Modal Window</h2>
-      <p>This is the content of the modal.</p> */}
             <div className="flex justify-end">
               <button className="pl-1" onClick={closeModal}>
                 &#x2715;

@@ -21,7 +21,6 @@ export default function WhatTypicalDay({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>What does your typical day look like?</p>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'at the office')}>
                 <input

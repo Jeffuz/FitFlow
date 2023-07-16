@@ -48,7 +48,6 @@ export default function SpecialPrograms({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>Do you want to include special programs?</p>
             <div className='mb-2' onClick={() => handleOptionToggle('no thanks')}>
                 <input className='mr-1' type="radio" checked={selectedGoals.includes('no thanks')} onChange={() => { }} />

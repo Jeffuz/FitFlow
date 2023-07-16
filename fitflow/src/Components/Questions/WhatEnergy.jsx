@@ -21,7 +21,6 @@ export default function WhatEnergy({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>How are your energy levels during the day?</p>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'even throughout the day')}>
                 <input

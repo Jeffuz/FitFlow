@@ -21,7 +21,6 @@ export default function WhatGender({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>What's your gender?</p>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'male')}>
                 <input

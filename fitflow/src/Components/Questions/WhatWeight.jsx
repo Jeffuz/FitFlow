@@ -25,7 +25,6 @@ export default function WhatWeight({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <img className="object-scale-down m-4 h-24"
             src="https://static-00.iconduck.com/assets.00/scale-icon-511x512-9xq7u245.png"/>
             <p className='text-2xl mb-4'>Enter Your Weight:</p>

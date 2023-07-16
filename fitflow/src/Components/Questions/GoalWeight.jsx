@@ -25,7 +25,6 @@ export default function GoalWeight({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-4'>What is your goal weight?</p>
             <div className='mb-2'>
                 <label>
