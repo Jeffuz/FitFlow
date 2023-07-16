@@ -22,6 +22,8 @@ export default function WhereWorkout({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
+            <img className="object-scale-down m-3 h-24"
+            src="https://static-00.iconduck.com/assets.00/fitness-illustration-463x512-nd2y0718.png"/>
             <p className='text-2xl mb-5'>Where do you workout?</p>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'gym')}>
                 <input
