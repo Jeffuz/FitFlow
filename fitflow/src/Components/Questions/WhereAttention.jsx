@@ -30,13 +30,12 @@ export default function WhereAttention({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <img className="object-scale-down m-4 h-24"
             src="https://static-00.iconduck.com/assets.00/diet-icon-512x512-plqvqqlx.png"/>
             <p className='text-2xl mb-5'>Which area needs the most attention?</p>
             <div className='mb-2' onClick={() => handleOptionToggle('chest')}>
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedAttention.includes('chest')}
                     onChange={() => { }}
@@ -47,7 +46,7 @@ export default function WhereAttention({ onContinue, onGoBack }) {
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('arms')}>
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedAttention.includes('arms')}
                     onChange={() => { }}
@@ -58,7 +57,7 @@ export default function WhereAttention({ onContinue, onGoBack }) {
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('abs')}>
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedAttention.includes('abs')}
                     onChange={() => { }}
@@ -69,7 +68,7 @@ export default function WhereAttention({ onContinue, onGoBack }) {
             </div>
             <div className='mb-5' onClick={() => handleOptionToggle('legs')}>
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedAttention.includes('legs')}
                     onChange={() => { }}
@@ -78,7 +77,18 @@ export default function WhereAttention({ onContinue, onGoBack }) {
                     <strong>Legs</strong>
                 </label>
             </div>
-            <button onClick={handleContinue}>Next</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Next
+            </button>
+            <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md"
+                onClick={handleGoBack}
+            >
+                Back
+            </button>
         </>
     );
 }

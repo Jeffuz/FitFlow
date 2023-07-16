@@ -21,7 +21,6 @@ export default function WhatBodyType({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <img className="object-scale-down m-4 h-48"
             src="https://static.tuasaude.com/media/article/rl/xg/body-type_38055.webp"/>
             <p className='text-2xl mb-5'>What's your body type?</p>
@@ -58,7 +57,18 @@ export default function WhatBodyType({ onContinue, onGoBack }) {
                     <strong>Endomorph</strong>
                 </label>
             </div>
-            <button onClick={handleContinue}>Next</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Next
+            </button>
+            <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md"
+                onClick={handleGoBack}
+            >
+                Back
+            </button>
         </>
     );
 }

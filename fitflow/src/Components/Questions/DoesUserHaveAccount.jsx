@@ -24,9 +24,6 @@ export default function DoesUserHaveAccount({ onContinue }) {
 
     return (
         <>
-            <Link to="/">
-                <button>&#8592;</button>
-            </Link>
             <img className="object-scale-down m-4 h-24"
             src="https://static-00.iconduck.com/assets.00/diversity-illustration-512x173-qkdeqbov.png"/>
             <p className='text-2xl mb-5'>Welcome to our fitness community! <br/> 
@@ -56,7 +53,12 @@ export default function DoesUserHaveAccount({ onContinue }) {
                     <strong>Yes, I'm already part of the community</strong>
                 </label>
             </div>
-            <button onClick={handleContinue}>Continue</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Continue
+            </button>
         </>
     );
 }
