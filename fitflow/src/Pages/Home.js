@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
 import './styles.css'; // Import the CSS file
 import Questionnaire from './Questionnaire';
 
@@ -12,7 +10,6 @@ function getToken() {
 export default function Home() {
   const [backgroundImage, setBackgroundImage] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [userData, setUserData] = useState({});
 
   const token = getToken();
 
@@ -21,8 +18,6 @@ export default function Home() {
   } else {
     console.log('Need to log in');
   }
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const imageUrls = [
@@ -43,16 +38,8 @@ export default function Home() {
   };
 
   const closeModal = () => {
-    console.log(userData);
     setIsModalOpen(false);
   };
-
-  //#region Routing after questionnaire
-  const finishQuestionnaire = () => {
-    console.log(userData)
-    navigate("/signup", {state: {workoutString: userData}})
-  }
-  //#endregion
 
   return (
     <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -86,13 +73,14 @@ export default function Home() {
 
       {isModalOpen && (
         <div className="modal">
-          {/* <div className="modal-overlay" onClick={closeModal}></div> */}
-          <div className="py-10 px-12 bg-zinc-200 opacity-90 rounded-3xl">
-            {/* <h2>Modal Window</h2>
-            <p>This is the content of the modal.</p> */}
-            <Questionnaire setUserData={setUserData} finishQuestionnaire={finishQuestionnaire}/>
-            {}
-            <button className='pl-1' onClick={closeModal}>| Close</button>
+          <div className="overlay"></div>
+          <div className="py-10 px-12 w-150 bg-zinc-200 rounded-3xl relative">
+            <div className="flex justify-end">
+              <button className="pl-1" onClick={closeModal}>
+                &#x2715;
+              </button>
+            </div>
+            <Questionnaire />
           </div>
         </div>
       )}
