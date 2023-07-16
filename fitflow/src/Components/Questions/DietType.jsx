@@ -9,7 +9,7 @@ export default function DietType({ onContinue, onGoBack }) {
 
     const handleContinue = () => {
         if (selectedDietType) {
-            onContinue({diet_type: selectedDietType});
+            onContinue({ diet_type: selectedDietType });
         } else {
             alert('Please select an option');
         }
@@ -21,10 +21,9 @@ export default function DietType({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>Choose your diet type</p>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'traditional')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -36,7 +35,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'vegetarian')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -48,7 +47,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'keto')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -60,7 +59,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'pescatarian')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -72,7 +71,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'vegan')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -84,7 +83,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'paleo')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -96,7 +95,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'mediterranean')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -108,7 +107,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'diabete type 1')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -120,7 +119,7 @@ export default function DietType({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-5' onClick={(event) => handleOptionClick(event, 'diabete type 2')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -131,7 +130,18 @@ export default function DietType({ onContinue, onGoBack }) {
                     <strong>Diabete Type 2</strong>
                 </label>
             </div>
-            <button onClick={handleContinue}>Next</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Next
+            </button>
+            <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md"
+                onClick={handleGoBack}
+            >
+                Back
+            </button>
         </>
     );
 }

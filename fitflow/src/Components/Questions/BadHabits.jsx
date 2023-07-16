@@ -26,7 +26,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
 
     const handleContinue = () => {
         if (selectedHabitsupdatedHabits.length > 0) {
-            onContinue({habits: selectedHabitsupdatedHabits});
+            onContinue({ habits: selectedHabitsupdatedHabits });
         } else {
             alert('Please select an option');
         }
@@ -38,10 +38,9 @@ export default function BadHabits({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>What bad habits hinder you from reaching your goals?</p>
             <div className='mb-2' onClick={() => handleOptionToggle('i dont rest enough')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -53,7 +52,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('i have a sweet tooth')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -65,7 +64,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('i love salty food')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -77,7 +76,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('i have too much soda')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -89,7 +88,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('i enjoy midnight snacks')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -101,7 +100,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
                 </label>
             </div>
             <div className='mb-5' onClick={() => handleOptionToggle('none of the above')}>
-                
+
                 <input
                     type="radio"
                     className='mr-1'
@@ -112,7 +111,18 @@ export default function BadHabits({ onContinue, onGoBack }) {
                     <strong>None of the Above</strong>
                 </label>
             </div>
-            <button onClick={handleContinue}>Next</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Next
+            </button>
+            <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md"
+                onClick={handleGoBack}
+            >
+                Back
+            </button>
         </>
     );
 }

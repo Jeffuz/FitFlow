@@ -50,7 +50,6 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <p className="text-2xl mb-5">Enter Your Date of Birth</p>
             <div className='mb-5'>
                 <label>
@@ -87,7 +86,18 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
                     </select>
                 </label>
             </div>
-            <button onClick={handleContinue}>Next</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Next
+            </button>
+            <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md"
+                onClick={handleGoBack}
+            >
+                Back
+            </button>
         </>
     );
 }

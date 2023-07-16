@@ -66,30 +66,35 @@ export default function Home() {
             </button>
         </Link> */}
         <button
-          className="mt-10 drop-shadow-2xl transition duration-200 delay-100 
-          bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white font-bold py-2 px-4 rounded-full"
+          className="mt-8 drop-shadow-2xl transition duration-200 delay-30
+          bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white font-bold py-3 px-5 rounded-full"
           onClick={openModal}>
           GET STARTED
         </button>
       </div>
-      <h4>
+      {/* <h4>
         By tapping GET STARTED, you agree to our&nbsp;
         <a href="/">Terms of Use</a>&nbsp;and&nbsp;
         <a href="/">Privacy Policy</a>.
         Please review them before continuing.
-      </h4>
+      </h4> */}
 
       {isModalOpen && (
         <div className="modal">
           {/* <div className="modal-overlay" onClick={closeModal}></div> */}
           <div className="py-10 px-12 w-150 bg-zinc-200 opacity-90 rounded-3xl">
             {/* <h2>Modal Window</h2>
-            <p>This is the content of the modal.</p> */}
+      <p>This is the content of the modal.</p> */}
+            <div className="flex justify-end">
+              <button className="pl-1" onClick={closeModal}>
+                &#x2715;
+              </button>
+            </div>
             <Questionnaire />
-            <button className='pl-1' onClick={closeModal}>| Close</button>
           </div>
         </div>
       )}
+
     </div>
   );
 }
