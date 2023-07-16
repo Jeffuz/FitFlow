@@ -21,7 +21,8 @@ export default function HowActive({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
+            <img className="object-scale-down m-3 h-24"
+            src="https://static-00.iconduck.com/assets.00/calendar-illustration-512x410-bk201cbg.png"/>
             <p className='text-2xl mb-5'>How active are you?</p>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'not much')}>
                 <input
@@ -67,7 +68,18 @@ export default function HowActive({ onContinue, onGoBack }) {
                     <strong>5-7 Workouts a Week</strong>
                 </label>
             </div>
-            <button onClick={handleContinue}>Next</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Next
+            </button>
+            <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md"
+                onClick={handleGoBack}
+            >
+                Back
+            </button>
         </>
     );
 }

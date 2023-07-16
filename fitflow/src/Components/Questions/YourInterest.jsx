@@ -30,13 +30,12 @@ export default function YourInterest({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>What are you interested in?</p>
             <div className='mb-2' onClick={() => handleOptionToggle('meal plans')}>
 
                 <input
                     className='mr-1'
-                    type="radio"
+                    type="checkbox"
                     checked={selectedGoals.includes('meal plans')}
                     onChange={() => { }}
                 />
@@ -48,7 +47,7 @@ export default function YourInterest({ onContinue, onGoBack }) {
 
                 <input
                     className='mr-1'
-                    type="radio"
+                    type="checkbox"
                     checked={selectedGoals.includes('calorie counting')}
                     onChange={() => { }}
                 />
@@ -60,7 +59,7 @@ export default function YourInterest({ onContinue, onGoBack }) {
 
                 <input
                     className='mr-1'
-                    type="radio"
+                    type="checkbox"
                     checked={selectedGoals.includes('workout plans')}
                     onChange={() => { }}
                 />
@@ -72,7 +71,7 @@ export default function YourInterest({ onContinue, onGoBack }) {
 
                 <input
                     className='mr-1'
-                    type="radio"
+                    type="checkbox"
                     checked={selectedGoals.includes('fasting')}
                     onChange={() => { }}
                 />
@@ -80,7 +79,18 @@ export default function YourInterest({ onContinue, onGoBack }) {
                     <strong>Fasting:</strong> I want to lose weight and improve digestion
                 </label>
             </div>
-            <button onClick={handleContinue}>Next</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Next
+            </button>
+            <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md"
+                onClick={handleGoBack}
+            >
+                Back
+            </button>
         </>
     );
 }

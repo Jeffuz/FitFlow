@@ -44,22 +44,23 @@ export default function WhatHeight({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
-            <h2>Enter Your Height</h2>
-            <div>
+            <img className="object-scale-down m-4 h-24"
+                src="https://static-00.iconduck.com/assets.00/ruler-90-icon-512x512-2r0ls61q.png" />
+            <p className='text-2xl mb-4'>Enter Your Height:</p>
+            <div className='mb-3'>
                 <label>
                     Unit of Measurement:
-                    <select value={unit} onChange={handleUnitChange}>
+                    <select className='ml-2 rounded-lg h-6 w-26 text-center' value={unit} onChange={handleUnitChange}>
                         <option value="inches">Inches</option>
                         <option value="cm">Centimeters</option>
                     </select>
                 </label>
             </div>
             {unit === 'inches' && (
-                <div>
+                <div className='mb-5'>
                     <label>
                         Feet:
-                        <select value={feet} onChange={handleFeetChange}>
+                        <select className='ml-2 mr-2 rounded-lg h-6 w-20 text-center' value={feet} onChange={handleFeetChange}>
                             <option value="">Select</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -72,7 +73,7 @@ export default function WhatHeight({ onContinue, onGoBack }) {
                     </label>
                     <label>
                         Inches:
-                        <select value={inches} onChange={handleInchesChange}>
+                        <select className='ml-2 rounded-lg h-6 w-20 text-center' value={inches} onChange={handleInchesChange}>
                             <option value="">Select</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
@@ -91,10 +92,11 @@ export default function WhatHeight({ onContinue, onGoBack }) {
                 </div>
             )}
             {unit === 'cm' && (
-                <div>
+                <div className='mb-5'>
                     <label>
                         Centimeters:
                         <input
+                            className='ml-2 rounded-lg h-6 w-25 text-center'
                             type="number"
                             value={centimeters}
                             onChange={handleCentimetersChange}
@@ -103,7 +105,18 @@ export default function WhatHeight({ onContinue, onGoBack }) {
                     </label>
                 </div>
             )}
-            <button onClick={handleContinue}>Next</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Next
+            </button>
+            <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md"
+                onClick={handleGoBack}
+            >
+                Back
+            </button>
         </>
     );
 }

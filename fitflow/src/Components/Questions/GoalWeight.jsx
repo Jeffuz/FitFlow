@@ -16,7 +16,11 @@ export default function GoalWeight({ onContinue, onGoBack }) {
     };
 
     const handleContinue = () => {
-        onContinue({ goal_weight: weight, unit: measurementUnit });
+        if (weight === '') {
+            alert('Please enter your goal weight');
+        } else {
+            onContinue({ goal_weight: weight, unit: measurementUnit });
+        }
     };
     
     const handleGoBack = () => {
@@ -25,11 +29,11 @@ export default function GoalWeight({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
-            <h2>What is your goal weight?</h2>
-            <div>
+            <p className='text-2xl mb-4'>What is your goal weight?</p>
+            <div className='mb-2'>
                 <label>
                     <input
+                        className='mr-2 rounded-lg h-6 w-48 text-center'
                         type="number"
                         value={weight}
                         onChange={handleInputChange}
@@ -40,9 +44,10 @@ export default function GoalWeight({ onContinue, onGoBack }) {
                     {measurementUnit}
                 </label>
             </div>
-            <div>
-                <label>
+            <div className='mb-5'>
+                <label className='mr-3'>
                     <input
+                        className='mr-1'
                         type="radio"
                         value="kg"
                         checked={measurementUnit === 'kg'}
@@ -52,6 +57,7 @@ export default function GoalWeight({ onContinue, onGoBack }) {
                 </label>
                 <label>
                     <input
+                        className='mr-1'
                         type="radio"
                         value="lb"
                         checked={measurementUnit === 'lb'}
@@ -60,7 +66,18 @@ export default function GoalWeight({ onContinue, onGoBack }) {
                     lb
                 </label>
             </div>
-            <button onClick={handleContinue}>Next</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Next
+            </button>
+            <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md"
+                onClick={handleGoBack}
+            >
+                Back
+            </button>
         </>
     );
 }

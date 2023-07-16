@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import './styles.css'; // Import the CSS file
 import Questionnaire from './Questionnaire';
 
@@ -68,27 +69,20 @@ export default function Home() {
           Empowering You to Embrace a Healthier <br /> Lifestyle,
           Achieve Your Fitness Goals, <br /> and Unleash Your Full Potential.
         </p>
-        {/* <Link to="/questionnaire"> 
-            <button class="mt-10 drop-shadow-2xl
-            transition duration-200 delay-100
-            bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white 
-            font-bold py-2 px-4 rounded-full">
-                GET STARTED
-            </button>
-        </Link> */}
         <button
-          className="mt-10 drop-shadow-2xl transition duration-200 delay-100 
-          bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white font-bold py-2 px-4 rounded-full"
-          onClick={openModal}>
+          className="mt-8 drop-shadow-2xl transition duration-200 delay-30
+          bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white font-bold py-3 px-5 rounded-full"
+          onClick={openModal}
+        >
           GET STARTED
         </button>
       </div>
-      <h4>
+      {/* <h4>
         By tapping GET STARTED, you agree to our&nbsp;
         <a href="/">Terms of Use</a>&nbsp;and&nbsp;
         <a href="/">Privacy Policy</a>.
         Please review them before continuing.
-      </h4>
+      </h4> */}
 
       {isModalOpen && (
         <div className="modal">
@@ -105,3 +99,7 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+

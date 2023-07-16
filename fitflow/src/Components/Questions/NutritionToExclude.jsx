@@ -21,7 +21,6 @@ export default function NutritionToExclude({ onContinue, onGoBack }) {
 
     return (
         <>
-            <button onClick={handleGoBack}>&#8592;</button>
             <p className='text-2xl mb-5'>What do you want to exclude?</p>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'dairy')}>
                 
@@ -83,7 +82,18 @@ export default function NutritionToExclude({ onContinue, onGoBack }) {
                     <strong>I eat everything</strong>
                 </label>
             </div>
-            <button onClick={handleContinue}>Next</button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2"
+                onClick={handleContinue}
+            >
+                Next
+            </button>
+            <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md"
+                onClick={handleGoBack}
+            >
+                Back
+            </button>
         </>
     );
 }
