@@ -62,7 +62,7 @@ export default function Home() {
           <br /> full potential.
         </p>
         <button
-          className="mt-8 drop-shadow-2xl transition duration-200 delay-30
+          className="mt-8 drop-shadow-2xl transition delay-30 duration-200 ease-in-out
           bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white font-bold py-3 px-5 rounded-full"
           onClick={openModal}
         >
