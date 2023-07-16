@@ -66,7 +66,9 @@ export default function Questionnaire({setUserData, finishQuestionnaire}) {
             {step === 21 && <GoalWeight onContinue={handleContinue} onGoBack={handleGoBack} />}
             {step === 22 && <DateOfBirth onContinue={handleContinue} onGoBack={handleGoBack} />}
             &nbsp;&nbsp;&nbsp;&nbsp;
-            {step === 22 && (<button onClick={finishQuestionnaire}>Submit</button>)}
+            {step === 22 && (<button className="transition delay-1000 duration-1000
+                            hover:text-gray-800 hover:text-lg text-gray-700 
+                            font-bold py-2 px-1" onClick={finishQuestionnaire}>Generate my report!</button>)}
             </>
     );
 }
