@@ -43,17 +43,34 @@ export default function LoginComponent() {
 
   return (
     <div>
-      <p>Login Component</p>
+      <img className="object-scale-down mb-4 h-24"
+      src="https://static-00.iconduck.com/assets.00/user-profile-illustration-512x166-tpnxxvhp.png" />
+      <p className="text-2xl mb-6">Welcome!</p>
       <form onSubmit={handleLogin}>
         <label>Email: </label> <br />
 
-        <input type="text" onChange={e => setEmail(e.target.value)} /> <br />
+        <input 
+          className='p-4 mb-3 mt-2 rounded-lg h-7 w-64 text-gray-700
+          focus:outline-none focus:ring focus:ring-blue-300' 
+          type="text" 
+          onChange={e => setEmail(e.target.value)} 
+        /> <br />
 
         <label>Password: </label> <br />
 
-        <input type="password" onChange={e => setPassword(e.target.value)} /> <br />
+        <input 
+          className='p-4 mb-6 mt-2 rounded-lg h-7 w-64 text-gray-700 sm:text-md
+          focus:outline-none focus:ring focus:ring-blue-300' 
+          type="password" onChange={e => setPassword(e.target.value)} 
+        /> <br />
 
-        <button type="submit">Submit</button>
+        <button 
+          className="transition delay-1000 duration-1000
+          hover:text-gray-800 hover:text-lg text-gray-700 
+          font-bold py-2 px-1"
+          type="submit">
+            Login
+        </button>
       </form>
     </div>
   );
