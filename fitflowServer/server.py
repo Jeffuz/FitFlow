@@ -1,7 +1,7 @@
 from flask import Flask, request
 import pymongo
 from pymongo import MongoClient
-
+from bson import json_util, ObjectId
 import openai
 
 from flask_cors import CORS
@@ -22,21 +22,69 @@ collection = db["Users"]
 openai.api_key = config.API_KEY
 model = config.MODEL
 
+@app.route("/getPlan/<token>")
+def getToken(token):
+    user = collection.find({ "_id": ObjectId(token)})
+
+    try:
+        userData = user.next()
+    except Exception as e:
+        return {"error": "User not found in system"}, 900  # Return an error message if an exception occurs
+    
+
+    return {"Error": '',
+            "Result": "Success",
+            "WorkoutPrompt": userData["WorkoutPrompt"]
+            }
+
 @app.route("/getPlan", methods=("GET", "POST"))
 def gernerateWorkoutPlan():
-    json = request.get_json();
+    # Check if user exists and already generated a workout plan from AI
+    if request.method == "POST":
+        json = request.get_json();
 
-    print(json)
 
-    response = openai.ChatCompletion.create(model = model, messages = [
-        {"role": "system", "content": config.CHATMODELROLE},
-        {"role": "user", "content": json}
-    ], max_tokens= 1000)
+        print(json['token'])
+        user = collection.find({ "_id": ObjectId(json['token'])})
 
-    generated_text = response["choices"][0]["message"]["content"]
+        try:
+            userData = user.next()
+        except Exception as e:
+            return {"error": "User not found in system"}, 900  # Return an error message if an exception occurs
+        
+        # Check if AI PLAN is made
+        if userData['AiPrompt'] == '':
+            print("User has not generated AI plan yet Generating")
 
-    print(generated_text)
-    return {"Response": generated_text}
+            response = openai.ChatCompletion.create(model = model, messages = [
+                {"role": "system", "content": config.CHATMODELROLE},
+                {"role": "user", "content": json['message']}
+            ], max_tokens= 1000)
+
+            generated_text = response["choices"][0]["message"]["content"]
+
+            print(generated_text)
+            # Add Generated Text to user Account
+            filter = {"_id": ObjectId(json['token'])}
+            newKey = {"$set": {"AiPrompt": generated_text}}
+
+            collection.update_one(filter, newKey)
+
+            return {
+                "Error": '',
+                "Result": "Success",
+                "Response": generated_text
+                }
+
+        else:
+            print("User already has an AI Plan")
+            return {
+                "Error": '',
+                "Result": "Success",
+                "Response": userData['AiPrompt']
+            }
+        
+    return {"Response": "Called"}
 
 def doesUserExist(userEmail):      
     user = list(collection.find({ "Email": userEmail}))
@@ -93,7 +141,7 @@ def signup():
     try:  
         if request.method == 'POST':
             json = request.get_json()
-            
+
             if doesUserExist(json["email"]):
                 return {"Result": "Fail",
                         "Error": "User exists for email"}
@@ -103,6 +151,7 @@ def signup():
                     "Email": json["email"],
                     "Password": json["password"],
                     "WorkoutPrompt": json["workoutPrompt"],
+                    'AiPrompt': '',
                 })
             
             user = list(collection.find({ "Email": json["email"]}))

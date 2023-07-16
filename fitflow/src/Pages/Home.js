@@ -52,65 +52,7 @@ export default function Home() {
     navigate("/signup", {state: {workoutString: userData}})
   }
   //#endregion
-  //#region OpenAI call
-  async function handleSendData(inputData){
-    return( fetch(`http://127.0.0.1:5000/getPlan`, {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(inputData)
-    })     
- )
-  }
-  function parseUserData(uData) {
-    let height = null;
-    let whereWorkOut = null;
-    let sedentaryString = null;
 
-    (userData.unit === 'cm' ? height = uData.centimeters + uData.unit : height = uData.feet + "." + uData.inches + uData.unit);
-    (userData.whereWorkOut === 'gym'? whereWorkOut = "the gym" : whereWorkOut = "home");
-    (userData.sedentary === 'yes'? sedentaryString = "sedentary" : sedentaryString = '');
-
-    let inputString = "Can you create a " + uData.goals + " for me? Currently, I workout " + uData.active + " and I want to focus on my";
-    inputString += createStringForArray(uData.attention) + ".  My current body shape is " + uData.body_type + " and my dream is to have a ";
-    inputString += uData.body_shape + " body shape. I currently weigh " + uData.current_weight + uData.unit + " and my diet type is " + uData.diet_type + ". ";
-    inputString += "My energy levels throughout the day are " + uData.energy_level + ". I am " + height + " tall and identify as " + uData.gender + ". ";
-    inputString += "My goal is to weight " + uData.goal_weight + uData.unit + " and my bad habits are that " + createStringForArray(uData.habits) + ".";
-    inputString +=  "I prefer to work out at " + whereWorkOut + " and my main goal is to " + uData.mainGoal + ". If asked about excluding any specific nutrition from my diet, ";
-    inputString += "I would say " + uData.nutrition + ". If asked about leading a sedentary lifestyle, I would say " + sedentaryString + ". I usually sleep " + uData.sleep + " per day, ";
-    inputString += "and if there were any special programs available, I would be interested in " + createStringForArray(uData.specialPrograms) + " . In a typical day, I am ";
-    inputString += uData.typical_day + " . So, with this information, please create a " + createStringForArray(uData.goals) + " plan for me."
-
-    console.log(inputString);
-
-    return inputString;
-
-  }
-  function createStringForArray(array){
-    let returnString = '';
-    for (let i = 0; i<array.length; i++) {
-      if (i === 0)
-        returnString += ' ' + array[i];
-      else if(i === array.length-1)
-        returnString += ', and ' + array[i];
-      else
-        returnString += ', ' + array[i];
-    }
-    console.log(returnString);
-    return returnString;
-  }
-  const sendDataToBackend = async() => {
-    let inputString = parseUserData(userData);
-
-    try {
-      let result = await handleSendData(inputString)
-      console.log(result);
-    } catch {
-      console.log("Failed to fetch");
-    }
-  }
-  //#endregion
   return (
     <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="absolute top-6 ml-20">
