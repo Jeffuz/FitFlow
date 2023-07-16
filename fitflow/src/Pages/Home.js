@@ -46,58 +46,67 @@ export default function Home() {
 
   const finishQuestionnaire = () => {
     console.log(userData)
-    navigate("/signup", {state: {workoutString: userData}})
+    navigate("/signup", { state: { workoutString: userData } })
   }
 
   return (
-    <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div className="absolute ml-20">
-        <div className="mt-48 text-left fitflow-container">
-          {/* <p className="fitflow-heading"> 
+    <>
+      <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className="absolute ml-20">
+          <div className="mt-48 text-left fitflow-container">
+            {/* <p className="fitflow-heading"> 
             FitFlow
           </p> */}
-          <p className="fitflow-heading-fit font-thin text-gray-200">Fit</p>
-          <p className="fitflow-heading-flow font-bold text-gray-200">Flow</p>
-        </div>
-        <p className="transform-heading text-6xl text-gray-200 mt-5 text-left">
-          Transform <br />
-          Your Body, Mind, <br />
-          and Soul.
-        </p>
-        <p className="empower-heading text-lg font-thin text-gray-100 mt-8 text-left">
-          Empowering you to achieve your fitness goals, 
-          <br /> embrace a healthier lifestyle, and unleash your 
-          <br /> full potential.
-        </p>
-        <button
-          className="mt-8 drop-shadow-2xl transition delay-30 duration-200 ease-in-out
+            <p className="fitflow-heading-fit font-thin text-gray-200">Fit</p>
+            <p className="fitflow-heading-flow font-bold text-gray-200">Flow</p>
+          </div>
+          <p className="transform-heading text-6xl text-gray-200 mt-5 text-left">
+            Transform <br />
+            Your Body, Mind, <br />
+            and Soul.
+          </p>
+          <p className="empower-heading text-lg font-thin text-gray-100 mt-8 text-left">
+            Empowering you to achieve your fitness goals,
+            <br /> embrace a healthier lifestyle, and unleash your
+            <br /> full potential.
+          </p>
+          <button
+            className="mt-8 drop-shadow-2xl transition delay-30 duration-200 ease-in-out
           bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white font-bold py-3 px-5 rounded-full"
-          onClick={openModal}
-        >
-          GET STARTED
-        </button>
-      </div>
-      {/* <h4>
+            onClick={openModal}
+          >
+            GET STARTED
+          </button>
+
+        </div>
+        {/* <h4>
         By tapping GET STARTED, you agree to our&nbsp;
         <a href="/">Terms of Use</a>&nbsp;and&nbsp;
         <a href="/">Privacy Policy</a>.
         Please review them before continuing.
       </h4> */}
 
-      {isModalOpen && (
-        <div className="modal">
-          <div className="overlay"></div>
-          <div className="py-10 px-12 w-150 bg-zinc-200 opacity-90 rounded-3xl relative">
-            <div className="flex justify-end">
-              <button className="pl-1" onClick={closeModal}>
-                &#x2715;
-              </button>
+        {isModalOpen && (
+          <div className="modal">
+            <div className="overlay"></div>
+            <div className="py-10 px-12 w-150 bg-zinc-200 opacity-90 rounded-3xl relative">
+              <div className="flex justify-end">
+                <button className="pl-1" onClick={closeModal}>
+                  &#x2715;
+                </button>
+              </div>
+              <Questionnaire setUserData={setUserData} finishQuestionnaire={finishQuestionnaire} />
             </div>
-            <Questionnaire setUserData={setUserData} finishQuestionnaire={finishQuestionnaire}/>
           </div>
+        )}
+
+      </div>
+      <footer className="bg-gray-800 py-6">
+        <div className="container mx-auto px-4">
+          <p className="text-center text-gray-300">&copy; 2023 FitFlow Website. All rights reserved.</p>
         </div>
-      )}
-    </div>
+      </footer>
+    </>
   );
 }
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 export default function DisplayWorkoutComponent() {
-  
-  const [planArray, setPlanArray] = useState([]);
 
+  const [planArray, setPlanArray] = useState([]);
+  
   useEffect(() => {
     let storedToken = localStorage.getItem('token');
     let uData = null;
@@ -13,28 +13,28 @@ export default function DisplayWorkoutComponent() {
 
     async function runEffect() {
       let result = await getWorkoutPlan(storedToken);
-      let convert = await result.json();      
+      let convert = await result.json();
 
       uData = convert.WorkoutPrompt;
       sendDataToBackend(uData);
     }
-    
+
     runEffect();
 
   }, []);
 
   //#region OpenAI call
-  async function handleSendData(inputData){
+  async function handleSendData(inputData) {
     let token = localStorage.getItem('token');
 
-    return( fetch(`http://127.0.0.1:5000/getPlan`, {
+    return (fetch(`http://127.0.0.1:5000/getPlan`, {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({'token': token, 'message': inputData })
-    })     
-  )
+      body: JSON.stringify({ 'token': token, 'message': inputData })
+    })
+    )
   }
   function parseUserData(uData) {
     let height = null;
@@ -42,15 +42,15 @@ export default function DisplayWorkoutComponent() {
     let sedentaryString = null;
 
     (uData.unit === 'cm' ? height = uData.centimeters + uData.unit : height = uData.feet + "." + uData.inches + uData.unit);
-    (uData.whereWorkOut === 'gym'? whereWorkOut = "the gym" : whereWorkOut = "home");
-    (uData.sedentary === 'yes'? sedentaryString = "sedentary" : sedentaryString = '');
+    (uData.whereWorkOut === 'gym' ? whereWorkOut = "the gym" : whereWorkOut = "home");
+    (uData.sedentary === 'yes' ? sedentaryString = "sedentary" : sedentaryString = '');
 
     let inputString = "Can you create a " + uData.goals + " for me? Currently, I workout " + uData.active + " and I want to focus on my";
     inputString += createStringForArray(uData.attention) + ".  My current body shape is " + uData.body_type + " and my dream is to have a ";
     inputString += uData.body_shape + " body shape. I currently weigh " + uData.current_weight + uData.unit + " and my diet type is " + uData.diet_type + ". ";
     inputString += "My energy levels throughout the day are " + uData.energy_level + ". I am " + height + " tall and identify as " + uData.gender + ". ";
     inputString += "My goal is to weight " + uData.goal_weight + uData.unit + " and my bad habits are that " + createStringForArray(uData.habits) + ".";
-    inputString +=  "I prefer to work out at " + whereWorkOut + " and my main goal is to " + uData.mainGoal + ". If asked about excluding any specific nutrition from my diet, ";
+    inputString += "I prefer to work out at " + whereWorkOut + " and my main goal is to " + uData.mainGoal + ". If asked about excluding any specific nutrition from my diet, ";
     inputString += "I would say " + uData.nutrition + ". If asked about leading a sedentary lifestyle, I would say " + sedentaryString + ". I usually sleep " + uData.sleep + " per day, ";
     inputString += "and if there were any special programs available, I would be interested in " + createStringForArray(uData.specialPrograms) + " . In a typical day, I am ";
     inputString += uData.typical_day + " . So, with this information, please create a " + createStringForArray(uData.goals) + " plan for me."
@@ -59,12 +59,12 @@ export default function DisplayWorkoutComponent() {
     return inputString;
 
   }
-  function createStringForArray(array){
+  function createStringForArray(array) {
     let returnString = '';
-    for (let i = 0; i<array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
       if (i === 0)
         returnString += ' ' + array[i];
-      else if(i === array.length-1)
+      else if (i === array.length - 1)
         returnString += ', and ' + array[i];
       else
         returnString += ', ' + array[i];
@@ -91,8 +91,7 @@ export default function DisplayWorkoutComponent() {
     for (let i = 0; i < planString.length; i++) {
       str += planString[i];
 
-      if(planString[i] === '\n'){
-        console.log("BrEAKLINE FOUND");
+      if (planString[i] === '\n') {
         array.push(str);
         str = '';
       }
@@ -101,14 +100,46 @@ export default function DisplayWorkoutComponent() {
     setPlanArray(array);
   }
   //#endregion
-  return(
-    <div>
-      <p>Workout Stuff</p>
-      <div>
-        {planArray.map(element => {
-          return <p>{element}<br/></p>
-        })}
-      </div>
+  return (
+    <div className="bg-gray-100 min-h-screen">
+      <header className="bg-white py-4">
+        <div>
+          <div className="container mx-auto px-4 flex items-center justify-center">
+            <h1 className="fitflow-heading-fit font-thin text-black">Fit</h1>
+            <h1 className="fitflow-heading-flow font-bold text-black">Flow</h1>
+          </div>
+        </div>
+      </header>
+      <main className="container mx-auto px-4 py-8">
+        <div className="flex flex-col items-center">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-2xl font-bold mb-4">Your Workout Plan</h2>
+            {planArray.map((str, index) => (
+              <p key={index} className="my-2">{str}</p>
+            ))}
+          </div>
+          <p className="text-gray-600 mt-8 text-center">
+            Start your fitness journey today and achieve your goals with our customized workout plans.
+          </p>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full mt-4">
+            Create
+          </button>
+        </div>
+        <div className="mt-8">
+          <h3 className="text-xl font-bold mb-4">Benefits of Our Workout Plans</h3>
+          <ul className="list-disc list-inside">
+            <li>Customized plans tailored to your goals</li>
+            <li>Expertly designed exercises for maximum effectiveness</li>
+            <li>Flexible options for home or gym workouts</li>
+            <li>Track your progress and stay motivated</li>
+          </ul>
+        </div>
+      </main>
+      <footer className="bg-gray-800 py-6">
+        <div className="container mx-auto px-4">
+          <p className="text-center text-gray-300">&copy; 2023 FitFlow Website. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
