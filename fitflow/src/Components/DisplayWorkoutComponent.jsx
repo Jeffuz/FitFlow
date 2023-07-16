@@ -93,6 +93,7 @@ export default function DisplayWorkoutComponent() {
 
       if(planString[i] === '\n'){
         console.log("BrEAKLINE FOUND");
+        array.push(str);
         str = '';
       }
     }

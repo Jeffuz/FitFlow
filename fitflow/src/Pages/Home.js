@@ -80,7 +80,7 @@ export default function Home() {
                 &#x2715;
               </button>
             </div>
-            <Questionnaire />
+            <Questionnaire setUserData={setUserData} finishQuestionnaire={finishQuestionnaire}/>
           </div>
         </div>
       )}
