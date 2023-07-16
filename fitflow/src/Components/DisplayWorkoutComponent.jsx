@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react";
 
 export default function DisplayWorkoutComponent() {
   
-  const [plan, setPlan] = useState(null);
-  const [planArray, setPlanArray] = useState(['']);
+  const [planArray, setPlanArray] = useState([]);
 
   useEffect(() => {
     let storedToken = localStorage.getItem('token');
-    console.log(storedToken);
     let uData = null;
     async function getWorkoutPlan(token) {
       return fetch(`http://127.0.0.1:5000/getPlan/${token}`);
@@ -80,7 +78,6 @@ export default function DisplayWorkoutComponent() {
       let result = await handleSendData(inputString)
       let convert = await result.json();
 
-      console.log(convert);
       displayPlan(convert.Response);
 
     } catch {
@@ -90,26 +87,27 @@ export default function DisplayWorkoutComponent() {
   function displayPlan(planString) {
     let array = [];
     let str = '';
+
     for (let i = 0; i < planString.length; i++) {
       str += planString[i];
 
       if(planString[i] === '\n'){
         console.log("BrEAKLINE FOUND");
-        array.push(str);
         str = '';
-
       }
     }
-    console.log(array);
-    setPlanArray(planString);
+
+    setPlanArray(array);
   }
   //#endregion
   return(
     <div>
       <p>Workout Stuff</p>
-      <p>{
-        planArray.map((str) => {})
-        }</p>
+      <div>
+        {planArray.map(element => {
+          return <p>{element}<br/></p>
+        })}
+      </div>
     </div>
   );
 }
