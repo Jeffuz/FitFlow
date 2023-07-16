@@ -22,19 +22,21 @@ collection = db["Users"]
 openai.api_key = config.API_KEY
 model = config.MODEL
 
+@app.route("/getPlan", methods=("GET", "POST"))
+def gernerateWorkoutPlan():
+    json = request.get_json();
 
-def gernerateWorkoutPlan(userPlanMessage):
-    print(userPlanMessage)
+    print(json)
 
-    # response = openai.ChatCompletion.create(model = model, messages = [
-    #     {"role": "system", "content": config.CHATMODELROLE},
-    #     {"role": "user", "content": userPlanMessage}
-    # ], max_tokens=50)
+    response = openai.ChatCompletion.create(model = model, messages = [
+        {"role": "system", "content": config.CHATMODELROLE},
+        {"role": "user", "content": json}
+    ], max_tokens= 1000)
 
-    # generated_text = response["choices"][0]["message"]["content"]
+    generated_text = response["choices"][0]["message"]["content"]
 
-    # print(generated_text)
-
+    print(generated_text)
+    return {"Response": generated_text}
 
 def doesUserExist(userEmail):      
     user = list(collection.find({ "Email": userEmail}))
