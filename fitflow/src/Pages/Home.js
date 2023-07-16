@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './styles.css'; // Import the CSS file
 import Questionnaire from './Questionnaire';
 
@@ -20,6 +20,8 @@ export default function Home() {
   } else {
     console.log('Need to log in');
   }
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const imageUrls = [
@@ -44,6 +46,13 @@ export default function Home() {
     setIsModalOpen(false);
   };
 
+  //#region Routing after questionnaire
+  const finishQuestionnaire = () => {
+    console.log(userData)
+    navigate("/signup", {state: {workoutString: userData}})
+  }
+  //#endregion
+  //#region OpenAI call
   async function handleSendData(inputData){
     return( fetch(`http://127.0.0.1:5000/getPlan`, {
       method: 'POST',
@@ -92,17 +101,6 @@ export default function Home() {
     return returnString;
   }
   const sendDataToBackend = async() => {
-    // "Can you create a {Goals} for me? Currently,
-    //  I work out {Workouts per week} and I want to focus on my {attention}.
-    //   My current body shape is {body_type} and my dream is to have a {body_shape} body shape.
-    //    I currently weigh {current_weight} {units} and my diet type is {diet_type}.
-    //     My energy levels throughout the day are {energy_level}. I am {feet}{inches}{centimeters}
-    //      tall and identify as {gender}. My goal is to weigh {goal_weight} {units} and my bad habits are {habits}.
-    //       I prefer to work out at {location} and my main goal is to {mainGoal}. If asked about excluding any specific nutrition from my diet,
-    //        I would say "{nutrition}". If asked about leading a sedentary lifestyle, I would say "{sendentary}". I usually sleep {sleep} per day,
-    //         and if there are any special programs available,
-    //  I would be interested in "{specialPrograms}". In a typical day, I am {typical_day}. So, with this information, please create a {Goals} for me.
-
     let inputString = parseUserData(userData);
 
     try {
@@ -111,8 +109,8 @@ export default function Home() {
     } catch {
       console.log("Failed to fetch");
     }
-}
-
+  }
+  //#endregion
   return (
     <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="absolute top-6 ml-20">
@@ -156,7 +154,7 @@ export default function Home() {
           <div className="py-10 px-12 bg-zinc-200 opacity-90 rounded-3xl">
             {/* <h2>Modal Window</h2>
             <p>This is the content of the modal.</p> */}
-            <Questionnaire setUserData={setUserData} sendDataToBackend={sendDataToBackend}/>
+            <Questionnaire setUserData={setUserData} finishQuestionnaire={finishQuestionnaire}/>
             {}
             <button className='pl-1' onClick={closeModal}>| Close</button>
           </div>

@@ -24,7 +24,7 @@ import WhatHeight from '../Components/Questions/WhatHeight';
 
 import './styles.css'; // Import the CSS file
 
-export default function Questionnaire({setUserData, sendDataToBackend}) {
+export default function Questionnaire({setUserData, finishQuestionnaire}) {
     const [step, setStep] = useState(1);
 
     const handleContinue = (data) => {
@@ -66,7 +66,7 @@ export default function Questionnaire({setUserData, sendDataToBackend}) {
             {step === 21 && <GoalWeight onContinue={handleContinue} onGoBack={handleGoBack} />}
             {step === 22 && <DateOfBirth onContinue={handleContinue} onGoBack={handleGoBack} />}
             &nbsp;&nbsp;&nbsp;&nbsp;
-            {step === 22 && (<button onClick={sendDataToBackend}>Submit</button>)}
+            {step === 22 && (<button onClick={finishQuestionnaire}>Submit</button>)}
             </>
     );
 }

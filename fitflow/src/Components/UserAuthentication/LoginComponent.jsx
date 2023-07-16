@@ -9,6 +9,9 @@ export default function LoginComponent() {
 
   const navigate = useNavigate();
 
+  function storeToken(token) {
+    localStorage.setItem('token', token);
+  }
   async function loginUser(credentials) {
     console.log("Passing in data");
 
@@ -33,7 +36,7 @@ export default function LoginComponent() {
       return
       // Retry
     }
-
+    storeToken(returnResult["Id"]);
     navigate(-1);
     //Fetch database
   };

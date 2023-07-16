@@ -88,25 +88,43 @@ def login():
 
 @app.route("/signup", methods=("GET", "POST"))
 def signup():
+    isValid = False
+    validUserToken = None
     try:  
         if request.method == 'POST':
             json = request.get_json()
-
+            print(json["workoutPrompt"])
             if doesUserExist(json["email"]):
                 return {"Result": "Fail",
                         "Error": "User exists for email"}
 
             collection.insert_one({
+                    "Name": json["name"],
                     "Email": json["email"],
                     "Password": json["password"],
+                    "WorkoutPrompt": json["workoutPrompt"],
                 })
             
+            user = list(collection.find({ "Email": json["email"]}))
+
+            for x in user:
+                if x["Password"] == json["password"]:
+                    isValid = True
+                    validUserToken = x["_id"]
+
     except Exception as e:
         return {"Result": "Fail",
                 "Error": str(e) }, 100
     
-    return {"Result": "Success",
-            "Error": "None" }
+    if isValid:
+        idString = str(validUserToken)
+        return {
+            "Result": "Success",
+            "Id": idString,
+            "Token": "Valid",
+            "Error": ""
+        }
+    
 
 if __name__ == "__main__":
     app.run(debug=True)  # Run the Flask application in debug mode
