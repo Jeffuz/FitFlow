@@ -44,7 +44,7 @@ export default function WhatEnergy({ onContinue, onGoBack }) {
                     <strong>I Feel a Dip Around Lunchtime</strong>
                 </label>
             </div>
-            <div className='mb-2' onClick={(event) => handleOptionClick(event, 'i need a nap after meals')}>
+            <div className='mb-5' onClick={(event) => handleOptionClick(event, 'i need a nap after meals')}>
                 <input
                     type="radio"
                     className='mr-1'

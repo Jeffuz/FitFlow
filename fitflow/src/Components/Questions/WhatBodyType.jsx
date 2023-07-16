@@ -21,7 +21,7 @@ export default function WhatBodyType({ onContinue, onGoBack }) {
 
     return (
         <>
-            <img className="object-scale-down m-4 h-48"
+            <img className="object-scale-down my-4 h-52"
             src="https://static.tuasaude.com/media/article/rl/xg/body-type_38055.webp"/>
             <p className='text-2xl mb-5'>What's your body type?</p>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'ectomorph')}>

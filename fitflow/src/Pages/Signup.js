@@ -8,8 +8,11 @@ export default function Signup() {
   console.log("SIGNUP", workoutString);
 
   return(
-    <div>
-      <SignupComponent workoutString={workoutString}/>
+    <div className="h-screen bg-cover bg-center bg-gray-200 flex justify-center">
+      <div className="mt-36">
+        <SignupComponent workoutString={workoutString}/>
+      </div>
+      
     </div>
   )
 }
