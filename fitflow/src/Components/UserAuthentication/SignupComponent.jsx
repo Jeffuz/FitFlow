@@ -12,6 +12,7 @@ export default function SignupComponent(workoutString) {
   const [isMatchingPassword, setIsMatchingPassword] = useState(false);
 
   const workoutPrompt = workoutString.workoutString;
+  console.log(workoutPrompt);
   const navigate = useNavigate();
 
 

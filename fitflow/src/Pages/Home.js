@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css'; // Import the CSS file
 import Questionnaire from './Questionnaire';
+import { useNavigate } from 'react-router-dom';
 
 function getToken() {
   const tokenString = sessionStorage.getItem('token');
@@ -10,8 +11,10 @@ function getToken() {
 export default function Home() {
   const [backgroundImage, setBackgroundImage] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userData, setUserData] = useState({});
 
   const token = getToken();
+  const navigate = useNavigate();
 
   if (token) {
     console.log('logged in as', token);
@@ -40,6 +43,11 @@ export default function Home() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const finishQuestionnaire = () => {
+    console.log(userData)
+    navigate("/signup", {state: {workoutString: userData}})
+  }
 
   return (
     <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -80,7 +88,7 @@ export default function Home() {
                 &#x2715;
               </button>
             </div>
-            <Questionnaire />
+            <Questionnaire setUserData={setUserData} finishQuestionnaire={finishQuestionnaire}/>
           </div>
         </div>
       )}
