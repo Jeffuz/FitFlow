@@ -42,7 +42,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
             <div className='mb-2' onClick={() => handleOptionToggle('i dont rest enough')}>
 
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedHabitsupdatedHabits.includes('i dont rest enough')}
                     onChange={() => { }}
@@ -54,7 +54,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
             <div className='mb-2' onClick={() => handleOptionToggle('i have a sweet tooth')}>
 
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedHabitsupdatedHabits.includes('i have a sweet tooth')}
                     onChange={() => { }}
@@ -66,7 +66,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
             <div className='mb-2' onClick={() => handleOptionToggle('i love salty food')}>
 
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedHabitsupdatedHabits.includes('i love salty food')}
                     onChange={() => { }}
@@ -78,7 +78,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
             <div className='mb-2' onClick={() => handleOptionToggle('i have too much soda')}>
 
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedHabitsupdatedHabits.includes('i have too much soda')}
                     onChange={() => { }}
@@ -90,7 +90,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
             <div className='mb-2' onClick={() => handleOptionToggle('i enjoy midnight snacks')}>
 
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedHabitsupdatedHabits.includes('i enjoy midnight snacks')}
                     onChange={() => { }}
@@ -102,7 +102,7 @@ export default function BadHabits({ onContinue, onGoBack }) {
             <div className='mb-5' onClick={() => handleOptionToggle('none of the above')}>
 
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedHabitsupdatedHabits.includes('none of the above')}
                     onChange={() => { }}

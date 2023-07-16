@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
 import './styles.css'; // Import the CSS file
 import Questionnaire from './Questionnaire';
 
@@ -57,18 +56,11 @@ export default function Home() {
           Empowering You to Embrace a Healthier <br /> Lifestyle,
           Achieve Your Fitness Goals, <br /> and Unleash Your Full Potential.
         </p>
-        {/* <Link to="/questionnaire"> 
-            <button class="mt-10 drop-shadow-2xl
-            transition duration-200 delay-100
-            bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white 
-            font-bold py-2 px-4 rounded-full">
-                GET STARTED
-            </button>
-        </Link> */}
         <button
           className="mt-8 drop-shadow-2xl transition duration-200 delay-30
           bg-white hover:bg-zinc-600 text-zinc-700 hover:text-white font-bold py-3 px-5 rounded-full"
-          onClick={openModal}>
+          onClick={openModal}
+        >
           GET STARTED
         </button>
       </div>
@@ -81,7 +73,8 @@ export default function Home() {
 
       {isModalOpen && (
         <div className="modal">
-          <div className="py-10 px-12 w-150 bg-zinc-200 opacity-90 rounded-3xl">
+          <div className="overlay"></div>
+          <div className="py-10 px-12 w-150 bg-zinc-200 rounded-3xl relative">
             <div className="flex justify-end">
               <button className="pl-1" onClick={closeModal}>
                 &#x2715;
@@ -91,7 +84,10 @@ export default function Home() {
           </div>
         </div>
       )}
-
     </div>
   );
 }
+
+
+
+

@@ -35,7 +35,7 @@ export default function YourInterest({ onContinue, onGoBack }) {
 
                 <input
                     className='mr-1'
-                    type="radio"
+                    type="checkbox"
                     checked={selectedGoals.includes('meal plans')}
                     onChange={() => { }}
                 />
@@ -47,7 +47,7 @@ export default function YourInterest({ onContinue, onGoBack }) {
 
                 <input
                     className='mr-1'
-                    type="radio"
+                    type="checkbox"
                     checked={selectedGoals.includes('calorie counting')}
                     onChange={() => { }}
                 />
@@ -59,7 +59,7 @@ export default function YourInterest({ onContinue, onGoBack }) {
 
                 <input
                     className='mr-1'
-                    type="radio"
+                    type="checkbox"
                     checked={selectedGoals.includes('workout plans')}
                     onChange={() => { }}
                 />
@@ -71,7 +71,7 @@ export default function YourInterest({ onContinue, onGoBack }) {
 
                 <input
                     className='mr-1'
-                    type="radio"
+                    type="checkbox"
                     checked={selectedGoals.includes('fasting')}
                     onChange={() => { }}
                 />

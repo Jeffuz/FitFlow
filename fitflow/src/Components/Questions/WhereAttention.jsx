@@ -35,7 +35,7 @@ export default function WhereAttention({ onContinue, onGoBack }) {
             <p className='text-2xl mb-5'>Which area needs the most attention?</p>
             <div className='mb-2' onClick={() => handleOptionToggle('chest')}>
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedAttention.includes('chest')}
                     onChange={() => { }}
@@ -46,7 +46,7 @@ export default function WhereAttention({ onContinue, onGoBack }) {
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('arms')}>
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedAttention.includes('arms')}
                     onChange={() => { }}
@@ -57,7 +57,7 @@ export default function WhereAttention({ onContinue, onGoBack }) {
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('abs')}>
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedAttention.includes('abs')}
                     onChange={() => { }}
@@ -68,7 +68,7 @@ export default function WhereAttention({ onContinue, onGoBack }) {
             </div>
             <div className='mb-5' onClick={() => handleOptionToggle('legs')}>
                 <input
-                    type="radio"
+                    type="checkbox"
                     className='mr-1'
                     checked={selectedAttention.includes('legs')}
                     onChange={() => { }}

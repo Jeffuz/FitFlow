@@ -50,31 +50,31 @@ export default function SpecialPrograms({ onContinue, onGoBack }) {
         <>
             <p className='text-2xl mb-5'>Do you want to include special programs?</p>
             <div className='mb-2' onClick={() => handleOptionToggle('no thanks')}>
-                <input className='mr-1' type="radio" checked={selectedGoals.includes('no thanks')} onChange={() => { }} />
+                <input className='mr-1' type="checkbox" checked={selectedGoals.includes('no thanks')} onChange={() => { }} />
                 <label>
                     <strong>No Thanks</strong>
                 </label>
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('sensitive back')}>
-            <input className='mr-1' type="radio" checked={selectedGoals.includes('sensitive back')} onChange={() => { }} />
+            <input className='mr-1' type="checkbox" checked={selectedGoals.includes('sensitive back')} onChange={() => { }} />
                 <label>
                     <strong>Sensitive Back</strong>
                 </label>
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('sensitive knees')}>
-                <input className='mr-1' type="radio" checked={selectedGoals.includes('sensitive knees')} onChange={() => { }} />
+                <input className='mr-1' type="checkbox" checked={selectedGoals.includes('sensitive knees')} onChange={() => { }} />
                 <label>
                     <strong>Sensitive Knees</strong>
                 </label>
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('limited mobility')}>
-                <input className='mr-1' type="radio" checked={selectedGoals.includes('limited mobility')} onChange={() => { }} />
+                <input className='mr-1' type="checkbox" checked={selectedGoals.includes('limited mobility')} onChange={() => { }} />
                 <label>
                     <strong>Limited Mobility (Wheelchair)</strong>
                 </label>
             </div>
             <div className='mb-2' onClick={() => handleOptionToggle('prenatal')}>
-                <input className='mr-1' type="radio" checked={selectedGoals.includes('prenatal')} onChange={() => { }} />
+                <input className='mr-1' type="checkbox" checked={selectedGoals.includes('prenatal')} onChange={() => { }} />
                 <label>
                     <strong>Prenatal</strong>
                 </label>
@@ -86,7 +86,7 @@ export default function SpecialPrograms({ onContinue, onGoBack }) {
                 )}
             </div>
             <div className='mb-5' onClick={() => handleOptionToggle('postnatal')}>
-                <input className='mr-1' type="radio" checked={selectedGoals.includes('postnatal')} onChange={() => { }} />
+                <input className='mr-1' type="checkbox" checked={selectedGoals.includes('postnatal')} onChange={() => { }} />
                 <label>
                     <strong>Postnatal</strong>
                 </label>

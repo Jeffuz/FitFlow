@@ -22,3 +22,16 @@
     align-items: center;
     justify-content: center;
   } */
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(10px); /* Adjust the blur value as per your preference */
+    z-index: -1;
+  }
+
+  
+  
