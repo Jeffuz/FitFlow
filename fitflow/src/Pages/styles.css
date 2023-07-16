@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Tektur');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+
+.fitflow-container {
+    display: flex;
+}
+.fitflow-heading-fit {
+    font-family: 'Tektur';
+    font-size: 3rem;
+}
+.fitflow-heading-flow {
+    font-family: 'Tektur';
+    font-size: 3rem;
+}
+.transform-heading {
+    font-family: 'Montserrat';
+}
+.empower-heading {
+    font-family: 'Nunito Sans';
+}
 .modal {
     position: fixed;
     top: 0;
@@ -9,28 +30,13 @@
     justify-content: center;
 }
 
-/* .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
-    background-color: #fff;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
-
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
     /* Adjust the blur value as per your preference */
     z-index: -1;
 }

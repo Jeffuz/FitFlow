@@ -43,18 +43,23 @@ export default function Home() {
 
   return (
     <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div className="absolute top-6 ml-20">
-        <p className="font-mono text-4xl text-gray-200 mt-60 text-left">
-          FitFlow
-        </p>
-        <p className="font-mono text-6xl text-gray-200 mt-5 text-left">
+      <div className="absolute ml-20">
+        <div className="mt-48 text-left fitflow-container">
+          {/* <p className="fitflow-heading"> 
+            FitFlow
+          </p> */}
+          <p className="fitflow-heading-fit font-thin text-gray-200">Fit</p>
+          <p className="fitflow-heading-flow font-bold text-gray-200">Flow</p>
+        </div>
+        <p className="transform-heading text-6xl text-gray-200 mt-5 text-left">
           Transform <br />
           Your Body, Mind, <br />
           and Soul.
         </p>
-        <p className="font-mono text-1xl text-gray-100 mt-5 text-left">
-          Empowering You to Embrace a Healthier <br /> Lifestyle,
-          Achieve Your Fitness Goals, <br /> and Unleash Your Full Potential.
+        <p className="empower-heading text-lg font-thin text-gray-100 mt-8 text-left">
+          Empowering you to achieve your fitness goals, 
+          <br /> embrace a healthier lifestyle, and unleash your 
+          <br /> full potential.
         </p>
         <button
           className="mt-8 drop-shadow-2xl transition duration-200 delay-30
