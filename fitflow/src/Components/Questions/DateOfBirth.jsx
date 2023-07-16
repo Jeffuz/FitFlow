@@ -52,10 +52,10 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
         <>
             <button onClick={handleGoBack}>&#8592;</button>
             <p className="text-2xl mb-5">Enter Your Date of Birth</p>
-            <div>
+            <div className='mb-5'>
                 <label>
                     Month:
-                    <select value={month} onChange={handleMonthChange}>
+                    <select className='ml-2 mr-2 rounded-lg h-6 w-26 text-center' value={month} onChange={handleMonthChange}>
                         <option value="">Select Month</option>
                         {monthOptions.map((option) => (
                             <option key={option} value={option}>
@@ -66,7 +66,7 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
                 </label>
                 <label>
                     Day:
-                    <select value={day} onChange={handleDayChange}>
+                    <select className='ml-2 mr-2 rounded-lg h-6 w-26 text-center' value={day} onChange={handleDayChange}>
                         <option value="">Select Day</option>
                         {dayOptions.map((option) => (
                             <option key={option} value={option}>
@@ -77,7 +77,7 @@ export default function DateOfBirth({ onContinue, onGoBack }) {
                 </label>
                 <label>
                     Year:
-                    <select value={year} onChange={handleYearChange}>
+                    <select className='ml-2 rounded-lg h-6 w-26 text-center' value={year} onChange={handleYearChange}>
                         <option value="">Select Year</option>
                         {yearOptions.map((option) => (
                             <option key={option} value={option}>

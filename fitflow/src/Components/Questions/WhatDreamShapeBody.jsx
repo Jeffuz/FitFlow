@@ -22,6 +22,8 @@ export default function WhatDreamShapeBody({ onContinue, onGoBack }) {
     return (
         <>
             <button onClick={handleGoBack}>&#8592;</button>
+            <img className="object-scale-down m-4 h-24"
+            src="https://static-00.iconduck.com/assets.00/chestpress-icon-445x512-jb6x2arf.png"/>
             <p className='text-2xl mb-5'>What's your dream body shape?</p>
             <div className='mb-2' onClick={(event) => handleOptionClick(event, 'cut')}>
                 <input

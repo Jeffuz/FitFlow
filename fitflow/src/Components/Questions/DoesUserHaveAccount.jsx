@@ -27,6 +27,8 @@ export default function DoesUserHaveAccount({ onContinue }) {
             <Link to="/">
                 <button>&#8592;</button>
             </Link>
+            <img className="object-scale-down m-4 h-24"
+            src="https://static-00.iconduck.com/assets.00/diversity-illustration-512x173-qkdeqbov.png"/>
             <p className='text-2xl mb-5'>Welcome to our fitness community! <br/> 
             Are you already part of our journey?</p>
             <div className='mb-2'>
