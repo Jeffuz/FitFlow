@@ -87,7 +87,7 @@ export default function Home() {
       {isModalOpen && (
         <div className="modal">
           <div className="overlay"></div>
-          <div className="py-10 px-12 w-150 bg-zinc-200 rounded-3xl relative">
+          <div className="py-10 px-12 w-150 bg-zinc-200 opacity-90 rounded-3xl relative">
             <div className="flex justify-end">
               <button className="pl-1" onClick={closeModal}>
                 &#x2715;
