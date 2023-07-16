@@ -9,6 +9,9 @@ export default function LoginComponent() {
 
   const navigate = useNavigate();
 
+  function storeToken(token) {
+    localStorage.setItem('token', token);
+  }
   async function loginUser(credentials) {
     console.log("Passing in data");
 
@@ -29,12 +32,12 @@ export default function LoginComponent() {
     let returnResult = convert["Result"];
 
     if (returnResult !== "Success") {
-      console.log("Incorrect data");
-      return
+      console.log(convert["Error"]);
+      return;
       // Retry
     }
-
-    navigate(-1);
+    storeToken(convert["Id"]);
+    navigate('/displayWorkout');
     //Fetch database
   };
 

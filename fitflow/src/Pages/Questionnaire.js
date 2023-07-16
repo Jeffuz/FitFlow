@@ -24,9 +24,8 @@ import WhatHeight from '../Components/Questions/WhatHeight';
 
 import './styles.css'; // Import the CSS file
 
-export default function Questionnaire() {
+export default function Questionnaire({setUserData, finishQuestionnaire}) {
     const [step, setStep] = useState(1);
-    const [userData, setUserData] = useState({});
 
     const handleContinue = (data) => {
         setUserData((prevData) => ({ ...prevData, ...data }));
@@ -40,21 +39,6 @@ export default function Questionnaire() {
 
     const handleGoBack = () => {
         setStep((prevStep) => prevStep - 1);
-    };
-
-    const sendDataToBackend = async () => {
-        try {
-            const response = await fetch('http://127.0.0.1:5000', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userData)
-            });
-
-        } catch (error) {
-            return;
-        }
     };
 
     return (
@@ -82,7 +66,7 @@ export default function Questionnaire() {
             {step === 21 && <GoalWeight onContinue={handleContinue} onGoBack={handleGoBack} />}
             {step === 22 && <DateOfBirth onContinue={handleContinue} onGoBack={handleGoBack} />}
             &nbsp;&nbsp;&nbsp;&nbsp;
-            {step === 22 && (<button onClick={sendDataToBackend}>Submit</button>)}
+            {step === 22 && (<button onClick={finishQuestionnaire}>Submit</button>)}
             </>
     );
 }
